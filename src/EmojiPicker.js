@@ -7,6 +7,9 @@ export default function EmojiPicker() {
   return (
       <Picker set="twitter"
               emojiSize={38}
+              useButton={false}
+              showSkinTones={false}
+              showPreview={false}
               sheetSize={64}
               color="#002884"
               title="EmojiTalkie"
