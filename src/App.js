@@ -4,30 +4,18 @@ import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import Link from '@material-ui/core/Link';
 import ProTip from './ProTip';
+import BottomAppBar from "./BottomAppBar";
+import Paper from "@material-ui/core/Paper";
+import EmojiPicker from "./EmojiPicker";
 
-function Copyright() {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright © '}
-      <Link color="inherit" href="https://material-ui.com/">
-        Your Website
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
 
 export default function App() {
   return (
     <Container maxWidth="sm">
-      <Box my={4}>
-        <Typography variant="h4" component="h1" gutterBottom>
-          Create React App v4-beta example
-        </Typography>
-        <ProTip />
-        <Copyright />
-      </Box>
+      <Paper style={{maxWidth: 720, minHeight: 400, margin: "0 auto"}}>
+        <BottomAppBar/>
+        <EmojiPicker />
+      </Paper>
     </Container>
   );
 }
