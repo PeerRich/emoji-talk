@@ -14,9 +14,9 @@ export default function App() {
   let isEmpty = false;
 
   return (
-    <div>
+    <div className="wrapper">
       <Paper className="app">
-        <div>
+        <div style={{width: "100%", height: "100%"}}>
           <div className="content">
             <div>
               {inChannel ?
