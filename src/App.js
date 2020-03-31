@@ -28,9 +28,7 @@ export default function App() {
         }
         <div>
           <BottomAppBar/>
-          <Hidden only="xs">
-            <EmojiPicker/>
-          </Hidden>
+          <EmojiPicker/>
         </div>
       </Paper>
     </div>
