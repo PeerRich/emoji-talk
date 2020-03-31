@@ -1,33 +1,32 @@
 import React from 'react';
 import Container from '@material-ui/core/Container';
-import Typography from '@material-ui/core/Typography';
-import Box from '@material-ui/core/Box';
-import Link from '@material-ui/core/Link';
-import ProTip from './ProTip';
-
-function Copyright() {
-    return (
-        <Typography variant="body2" color="textSecondary" align="center">
-            {'Copyright © '}
-            <Link color="inherit" href="https://material-ui.com/">
-                Your Website
-            </Link>{' '}
-            {new Date().getFullYear()}
-            {'.'}
-        </Typography>
-    );
-}
+import BottomAppBar from "./BottomAppBar";
+import Paper from "@material-ui/core/Paper";
+import EmojiPicker from "./EmojiPicker";
+import EmptyScreen from "./EmptyScreen";
+import Hidden from "@material-ui/core/Hidden";
 
 export default function App() {
-    return (
-        <Container maxWidth="sm">
-            <Box my={4}>
-                <Typography variant="h4" component="h1" gutterBottom>
-                    Create React App v4-beta example: emoji-talkie
-                </Typography>
-                <ProTip/>
-                <Copyright/>
-            </Box>
-        </Container>
-    );
+  let empty = true;
+
+  return (
+    <div>
+      <Paper style={{
+        maxWidth: 720,
+        minHeight: "100vh",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "space-between",
+        margin: "0 auto"
+      }}>
+        {empty ? <EmptyScreen/> : "wasd"}
+        <div>
+          <BottomAppBar/>
+          <Hidden only="xs">
+            <EmojiPicker/>
+          </Hidden>
+        </div>
+      </Paper>
+    </div>
+  );
 }
