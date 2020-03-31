@@ -5,6 +5,7 @@ import Paper from "@material-ui/core/Paper";
 import EmojiPicker from "./EmojiPicker";
 import EmptyScreen from "./EmptyScreen";
 import Hidden from "@material-ui/core/Hidden";
+import Grid from "@material-ui/core/Grid";
 
 export default function App() {
   let empty = true;
@@ -17,9 +18,14 @@ export default function App() {
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-between",
-        margin: "0 auto"
+        margin: "0px auto"
       }}>
-        {empty ? <EmptyScreen/> : "wasd"}
+        {empty ?
+          <EmptyScreen/> :
+          <div>
+            You are connected
+          </div>
+        }
         <div>
           <BottomAppBar/>
           <Hidden only="xs">
