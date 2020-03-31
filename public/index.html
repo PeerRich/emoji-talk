@@ -28,7 +28,7 @@
         height: 100vh;
         flex-direction: row;
         justify-content: space-between;
-        margin: 20px auto;
+        margin: 0px auto;
       }
 
       .content {
@@ -57,11 +57,11 @@
       }
 
 
-      @media only screen and (max-width: 800px) {
+      @media only screen and (max-width: 800px), (min-height: 800px) {
         .app{
           max-width: 720px;
           flex-direction: column;
-          margin: 0;
+          margin: 0 auto;
         }
 
         .content{
@@ -72,7 +72,10 @@
           max-width: 100%;
         }
 
-      }
+        .bottomAppBarWrapper{
+          max-width: 720px;
+          margin: 0 auto;
+        }
 
       .emoji-mart{
         border: 0 !important;

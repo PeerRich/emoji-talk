@@ -4,10 +4,11 @@ import Paper from "@material-ui/core/Paper";
 import EmojiPicker from "./EmojiPicker";
 import HomeScreen from "./HomeScreen";
 import EmptyScreen from "./EmptyScreen";
+import Channel from "./Channel";
 
 export default function App() {
   let inChannel = true;
-  let empty = true;
+  let isEmpty = true;
 
   return (
     <div>
@@ -15,7 +16,8 @@ export default function App() {
         <div className="content">
           <div style={{width: 400, height: 400}}>
             {inChannel ?
-              <EmptyScreen/> : <HomeScreen/>
+              isEmpty ? <EmptyScreen/> : <Channel />
+              : <HomeScreen/>
             }
           </div>
 
