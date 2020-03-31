@@ -5,7 +5,7 @@ import React from "react";
 export default function EmojiPicker() {
 
   return (
-      <Picker set="twitter" style={{ width: "100%"}} />
+      <Picker set="twitter" style={{ width: "100%", borderTopLeftRadius: 0, borderTopRightRadius: 0}} />
   );
 }
 
