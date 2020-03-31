@@ -15,6 +15,10 @@ const useStyles = makeStyles((theme) => ({
   text: {
     padding: theme.spacing(2, 2, 0),
   },
+  bottomBar:{
+    maxWidth: 1280,
+    margin: "0 auto"
+  },
   paper: {
     paddingBottom: 50,
   },
@@ -23,10 +27,6 @@ const useStyles = makeStyles((theme) => ({
   },
   subheader: {
     backgroundColor: theme.palette.background.paper,
-  },
-  appBar: {
-    top: 'auto',
-    bottom: 0,
   },
   grow: {
     flexGrow: 1,
@@ -46,9 +46,9 @@ export default function BottomAppBar() {
   const muted = true;
 
   return (
-    <React.Fragment>
+    <div className={classes.bottomBar}>
       <CssBaseline />
-      <AppBar position="static" color="primary" className={classes.appBar}>
+      <AppBar position="static" color="primary" className="bottomAppBar">
         <Toolbar>
           <strong style={{display: "inline-block", marginLeft: -10}}>#</strong>
           <IconButton edge="start" color="inherit" aria-label="open drawer">
@@ -66,6 +66,6 @@ export default function BottomAppBar() {
           </IconButton>
         </Toolbar>
       </AppBar>
-    </React.Fragment>
+    </div>
   );
 }

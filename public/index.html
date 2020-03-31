@@ -21,6 +21,59 @@
         background-color: rgba(0, 0, 0, 0.03) !important;
       }
 
+      .app{
+        display: flex;
+        position: relative;
+        max-width: 1280px;
+        height: 100vh;
+        flex-direction: row;
+        justify-content: space-between;
+        margin: 20px auto;
+      }
+
+      .content {
+        width: 100%;
+        max-width: 920px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .emoji-mart-scroll{
+        height: 90vh !important;
+      }
+
+      .channels {
+        max-width: 360px;
+        height: 100vh;
+      }
+
+      .bottomAppBarWrapper{
+        z-index: 1;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+      }
+
+
+      @media only screen and (max-width: 800px) {
+        .app{
+          max-width: 720px;
+          flex-direction: column;
+          margin: 0;
+        }
+
+        .content{
+          padding-top: 50px;
+        }
+
+        .channels {
+          max-width: 100%;
+        }
+
+      }
+
       .emoji-mart{
         border: 0 !important;
         padding: 4px;
@@ -30,11 +83,7 @@
         display: none;
       }
 
-      @media only screen and (max-height: 800px) {
-        .emoji-mart-scroll{
-          height: 150px !important;
-        }
-      }
+
 
       .twemoji {
         height: 18px;

@@ -2,33 +2,31 @@ import React from 'react';
 import BottomAppBar from "./BottomAppBar";
 import Paper from "@material-ui/core/Paper";
 import EmojiPicker from "./EmojiPicker";
+import HomeScreen from "./HomeScreen";
 import EmptyScreen from "./EmptyScreen";
-import Div100vh from 'react-div-100vh'
 
 export default function App() {
+  let inChannel = true;
   let empty = true;
 
   return (
     <div>
-      <Paper style={{
-        display: "flex",
-        position: "relative",
-        maxWidth: 720,
-        height: "100vh",
-        flexDirection: "column",
-        justifyContent: "space-between",
-        margin: "0px auto",
-        boxShadow: "0px 2px 1px -1px rgba(0,0,0,0.2), 0px 1px 1px 0px rgba(0,0,0,0.14), 0px 1px 3px 0px rgba(0,0,0,0.12)",
-      }}>
-        {empty ?
-          <EmptyScreen/> :
-          <div>
-            You are connected
+      <Paper className="app">
+        <div className="content">
+          <div style={{width: 400, height: 400}}>
+            {inChannel ?
+              <EmptyScreen/> : <HomeScreen/>
+            }
           </div>
-        }
-        <div style={{position: "fixed", maxWidth: 720, bottom: -5}}>
-          <BottomAppBar/>
-          <EmojiPicker/>
+
+        </div>
+        <div className="channels">
+          <div className="bottomAppBarWrapper">
+            <BottomAppBar/>
+          </div>
+          <div className="EmojiPickerWrapper">
+            <EmojiPicker/>
+          </div>
         </div>
       </Paper>
     </div>

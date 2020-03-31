@@ -16,7 +16,7 @@ const useStyles = makeStyles({
   },
 });
 
-export default function EmptyScreen() {
+export default function HomeScreen() {
   const classes = useStyles();
   let microphone = false;
 
@@ -27,25 +27,24 @@ export default function EmptyScreen() {
       flexDirection: "column",
       display: "flex",
     }}>
-      <div style={{textAlign: "center", maxWidth: 450}}>
-        <img src="https://twemoji.maxcdn.com/v/12.1.5/svg/1f937.svg"
+      <div style={{textAlign: "center", padding: "10% 0px", maxWidth: 450}}>
+        <img src="https://twemoji.maxcdn.com/v/12.1.5/svg/1f44b.svg"
              style={{height: 100, width: 100, marginBottom: 20}}/>
         <Typography className={classes.title} color="textSecondary" gutterBottom>
-          No one here yet.
+          Hello Stranger,
         </Typography>
         <Typography variant="h5" component="h2">
-          You are the only one in this channel
+          Welcome to <Emoji>📻</Emoji> <strong className="brand">EmojiTalkie</strong>
         </Typography>
         <Typography className={classes.pos} color="textSecondary">
-          Invite a friend or join another channel
+          The anonymous voice chat community
         </Typography>
         <Typography variant="body2" component="p">
           Join emoji channels and talk to strangers. You can mute a person with one <i>tap</i>, or
           permanently block them with a <i>double-tap</i>. No account. No download. It's that simple.
         </Typography>
         {!microphone &&
-          <Button color="primary" variant="contained" style={{margin: "16px 4px"}} size="small">Invite friend</Button>}
-          <Button color="primary" style={{margin: "16px 4px"}} size="small">Join channel</Button>
+          <Button color="primary" variant="contained" style={{marginTop: 16}} size="small">Enable Microphone</Button>}
       </div>
     </div>
   );
