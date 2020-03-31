@@ -23,7 +23,7 @@ const useStyles = makeStyles({
 export default function Channel() {
 
   return (
-      <div>
+      <div style={{padding: "16px 0"}}>
         <Grid className="people" container justify="center" spacing={2}>
           {[0, 1, 2, 3, 4, 5].map(value => (
             <Grid key={value} item xs={6} sm={4}>
