@@ -42,7 +42,7 @@ export default function EmptyScreen() {
           Join emoji channels and talk to strangers. You can mute a person with one <i>tap</i>, or
           permanently block them with a <i>double-tap</i>. No account. No download. It's that simple.
         </Typography>
-        <Button color="primary" variant="contained" style={{marginTop: 16}} size="small">Choose a Channel</Button>
+        <Button color="primary" variant="contained" style={{marginTop: 16}} size="small">Enable Microphone</Button>
       </div>
     </div>
   );

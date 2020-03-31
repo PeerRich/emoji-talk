@@ -5,7 +5,12 @@ import React from "react";
 export default function EmojiPicker() {
 
   return (
-      <Picker set="twitter" style={{ width: "100%", borderTopLeftRadius: 0, borderTopRightRadius: 0}} />
+      <Picker set="twitter"
+              emojiSize={42}
+              theme="dark"
+              color="#fff"
+              title="EmojiTalkie"
+              style={{ width: "100%", borderRadius: 0}} />
   );
 }
 
