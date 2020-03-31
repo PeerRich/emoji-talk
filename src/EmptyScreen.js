@@ -34,7 +34,7 @@ export default function EmptyScreen() {
           Hello Stranger,
         </Typography>
         <Typography variant="h5" component="h2">
-          Welcome to <strong className="brand">EmojiTalkie</strong> <Emoji>📻</Emoji>
+          Welcome to <Emoji>📻</Emoji> <strong className="brand">EmojiTalkie</strong>
         </Typography>
         <Typography className={classes.pos} color="textSecondary">
           The anonymous voice chat community
