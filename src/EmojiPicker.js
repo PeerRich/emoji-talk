@@ -7,7 +7,7 @@ export default function EmojiPicker() {
   return (
       <Picker set="twitter"
               emojiSize={38}
-              color="#fff"
+              color="#002884"
               title="EmojiTalkie"
               style={{ width: "100%", borderRadius: 0}} />
   );
