@@ -68,8 +68,17 @@
             opacity: 1;
         }
 
-        .people .disabled-person{
+        .volume-off-icon{
+             visibility: hidden;
+         }
+
+        .people div:hover .volume-off-icon{
+            visibility: visible;
+        }
+
+        .people .disabled-person, .people .add-person{
             background: #ccc !important;
+            opacity: 0.5;
         }
 
         .people div:nth-child(1) div{

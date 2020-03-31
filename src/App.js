@@ -16,12 +16,14 @@ export default function App() {
   return (
     <div>
       <Paper className="app">
-        <div className="content">
-          <div>
-            {inChannel ?
-              isEmpty ? <EmptyScreen/> : <Channel/>
-              : <HomeScreen/>
-            }
+        <div>
+          <div className="content">
+            <div>
+              {inChannel ?
+                isEmpty ? <EmptyScreen/> : <Channel/>
+                : <HomeScreen/>
+              }
+            </div>
           </div>
         </div>
         <div className="channels">
