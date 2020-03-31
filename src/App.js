@@ -7,7 +7,7 @@ import EmptyScreen from "./EmptyScreen";
 import Channel from "./Channel";
 
 export default function App() {
-  let inChannel = true;
+  let inChannel = false;
   let isEmpty = true;
 
   return (
@@ -15,7 +15,7 @@ export default function App() {
       <Paper className="app">
         <div className="content">
           <div style={{width: 400, height: 400}}>
-            {!inChannel ?
+            {inChannel ?
               isEmpty ? <EmptyScreen/> : <Channel />
               : <HomeScreen/>
             }
