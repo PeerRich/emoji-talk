@@ -6,6 +6,10 @@ import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import {Emoji} from "./helpers";
+import Paper from "@material-ui/core/Paper";
+import Tabs from "@material-ui/core/Tabs";
+import Tab from "@material-ui/core/Tab";
+import Grid from "@material-ui/core/Grid";
 
 const useStyles = makeStyles({
   title: {
@@ -16,37 +20,17 @@ const useStyles = makeStyles({
   },
 });
 
-export default function EmptyScreen() {
-  const classes = useStyles();
-  let microphone = false;
+export default function Channel() {
 
   return (
-    <div style={{
-      justifyContent: "center",
-      alignItems: "center",
-      flexDirection: "column",
-      display: "flex",
-    }}>
-      <div style={{textAlign: "center", maxWidth: 450}}>
-        <img src="https://twemoji.maxcdn.com/v/12.1.5/svg/1f937.svg"
-             style={{height: 100, width: 100, marginBottom: 20}}/>
-        <Typography className={classes.title} color="textSecondary" gutterBottom>
-          No one here yet.
-        </Typography>
-        <Typography variant="h5" component="h2">
-          You are the only one
-        </Typography>
-        <Typography className={classes.pos} color="textSecondary">
-          Invite a friend or join another channel
-        </Typography>
-        <Typography variant="body2" component="p">
-          Join emoji channels and talk to strangers. You can mute a person with one <i>tap</i>, or
-          permanently block them with a <i>double-tap</i>. No account. No download. It's that simple.
-        </Typography>
-        {!microphone &&
-          <Button color="primary" variant="contained" style={{margin: "16px 4px"}} size="small">Invite friend</Button>}
-          <Button color="primary" style={{margin: "16px 4px"}} size="small">Join channel</Button>
+      <div>
+        <Grid className="people" container justify="center" spacing={2}>
+          {[0, 1, 2, 3, 4, 5].map(value => (
+            <Grid key={value} item xs={6} sm={4}>
+              <Paper style={{height: 0, paddingTop: "100%", width: "100%", backgroundColor: "#fafa" + value}} />
+            </Grid>
+          ))}
+        </Grid>
       </div>
-    </div>
   );
 }
