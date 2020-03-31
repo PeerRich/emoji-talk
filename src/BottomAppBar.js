@@ -51,7 +51,7 @@ export default function BottomAppBar() {
       <AppBar position="static" color="primary" className="bottomAppBar">
         <Toolbar>
           <strong style={{display: "inline-block", marginLeft: -10}}>#</strong>
-          <IconButton edge="start" color="inherit" aria-label="open drawer">
+          <IconButton disabled edge="start" color="inherit" aria-label="open drawer">
             <Emoji>😊</Emoji>
           </IconButton>
           <Fab color="secondary" aria-label="add" className={classes.fabButton}>

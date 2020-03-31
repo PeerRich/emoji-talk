@@ -15,7 +15,7 @@ export default function App() {
       <Paper className="app">
         <div className="content">
           <div style={{width: 400, height: 400}}>
-            {inChannel ?
+            {!inChannel ?
               isEmpty ? <EmptyScreen/> : <Channel />
               : <HomeScreen/>
             }

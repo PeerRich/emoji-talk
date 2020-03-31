@@ -37,7 +37,7 @@ export default function EmptyScreen() {
           You are the only one
         </Typography>
         <Typography className={classes.pos} color="textSecondary">
-          Invite a friend or join another channel
+          Invite a friend or join another random channel
         </Typography>
         <Typography variant="body2" component="p">
           Join emoji channels and talk to strangers. You can mute a person with one <i>tap</i>, or
@@ -45,7 +45,7 @@ export default function EmptyScreen() {
         </Typography>
         {!microphone &&
           <Button color="primary" variant="contained" style={{margin: "16px 4px"}} size="small">Invite friend</Button>}
-          <Button color="primary" style={{margin: "16px 4px"}} size="small">Join channel</Button>
+          <Button color="primary" style={{margin: "16px 4px"}} size="small">random channel</Button>
       </div>
     </div>
   );
