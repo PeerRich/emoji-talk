@@ -27,7 +27,7 @@ export default function EmptyScreen() {
       flexDirection: "column",
       display: "flex",
     }}>
-      <div style={{textAlign: "center", paddingTop: "10%", maxWidth: 450}}>
+      <div style={{textAlign: "center", padding: "10% 0px", maxWidth: 450}}>
         <img src="https://twemoji.maxcdn.com/v/12.1.5/svg/1f44b.svg"
              style={{height: 100, width: 100, marginBottom: 20}}/>
         <Typography className={classes.title} color="textSecondary" gutterBottom>

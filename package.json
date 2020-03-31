@@ -14,6 +14,7 @@
     "clsx": "latest",
     "emoji-mart": "^3.0.0",
     "react": "latest",
+    "react-div-100vh": "^0.3.8",
     "react-dom": "latest",
     "react-scripts": "latest",
     "react-twemoji": "^0.2.3"
