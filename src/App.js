@@ -8,6 +8,8 @@ import Channel from "./Channel";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import Divider from "@material-ui/core/Divider";
+import AddToHomeScreenDialog from "./AddToHomeScreenDialog";
+import Hidden from "@material-ui/core/Hidden";
 
 export default function App() {
   let inChannel = false;
@@ -15,6 +17,9 @@ export default function App() {
 
   return (
     <div className="wrapper">
+      <Hidden smUp>
+        <AddToHomeScreenDialog />
+      </Hidden>
       <Paper className="app">
         <div style={{width: "100%", height: "100%"}}>
           <div className="content">

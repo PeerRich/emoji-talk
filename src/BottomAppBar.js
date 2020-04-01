@@ -55,11 +55,11 @@ export default function BottomAppBar() {
             <Emoji>😊</Emoji>
           </IconButton>
           <Fab color="secondary" aria-label="add" className={classes.fabButton}>
-            {muted ? <MicOffIcon style={{color: "#fff"}} /> : <MicOnIcon style={{color: "#fff"}} />}
+            <ShareIcon />
           </Fab>
           <div className={classes.grow} />
           <IconButton color="inherit">
-            <ShareIcon />
+            {muted ? <MicOffIcon style={{color: "#fff"}} /> : <MicOnIcon style={{color: "#fff"}} />}
           </IconButton>
           <IconButton edge="end" color="inherit">
             <MoreIcon />
