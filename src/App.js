@@ -20,7 +20,8 @@ export default function App() {
           <div className="content">
             <div>
               {inChannel ?
-                isEmpty ? <EmptyScreen/> : <Channel/>
+                isEmpty ? <EmptyScreen/>
+                  : <Channel/>
                 : <HomeScreen/>
               }
             </div>
@@ -31,13 +32,12 @@ export default function App() {
             <BottomAppBar/>
           </div>
           <div className="EmojiPickerWrapper">
-            <Divider />
+            <Divider/>
             <Tabs variant="fullWidth"
-              indicatorColor="primary"
-              textColor="primary">
-              <Tab label="Sponsored Channels"/>
-              <Tab label="Global Channels"/>
-              <Tab disabled label="Local Channels"/>
+                  indicatorColor="primary"
+                  textColor="primary">
+              <Tab label="Global"/>
+              <Tab label="Local"/>
             </Tabs>
             <EmojiPicker/>
           </div>
