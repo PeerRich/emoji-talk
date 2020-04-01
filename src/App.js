@@ -35,8 +35,9 @@ export default function App() {
             <Tabs variant="fullWidth"
               indicatorColor="primary"
               textColor="primary">
-              <Tab label="Global Channel"/>
-              <Tab disabled label="Local Channel"/>
+              <Tab label="Sponsored Channels"/>
+              <Tab label="Global Channels"/>
+              <Tab disabled label="Local Channels"/>
             </Tabs>
             <EmojiPicker/>
           </div>

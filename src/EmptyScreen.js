@@ -26,6 +26,7 @@ export default function EmptyScreen() {
       alignItems: "center",
       flexDirection: "column",
       display: "flex",
+      margin: "5% auto",
     }}>
       <div style={{textAlign: "center", maxWidth: 450}}>
         <img src="https://twemoji.maxcdn.com/v/12.1.5/svg/1f937.svg"

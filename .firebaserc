@@ -1,6 +1,6 @@
 {
   "projects": {
-    "default": "emojitalkie",
+    "default": "emoji-talkie",
     "peer": "emojitalkie"
   }
 }
