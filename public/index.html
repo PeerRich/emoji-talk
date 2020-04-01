@@ -21,6 +21,7 @@
         -->
     <style>
 
+
         body {
             background-color: rgba(0, 0, 0, 0.03) !important;
         }
@@ -43,7 +44,7 @@
             align-items: center;
         }
 
-        .content > div{
+        .content > div {
             width: 94%;
         }
 
@@ -72,40 +73,40 @@
             opacity: 1;
         }
 
-        .volume-off-icon{
-             visibility: hidden;
-         }
+        .volume-off-icon {
+            visibility: hidden;
+        }
 
-        .people div:hover .volume-off-icon{
+        .people div:hover .volume-off-icon {
             visibility: visible;
         }
 
-        .people .disabled-person, .people .add-person{
+        .people .disabled-person, .people .add-person {
             background: #ccc !important;
             opacity: 0.5;
         }
 
-        .people div:nth-child(1) div{
+        .people div:nth-child(1) div {
             background: #f48fb1;
         }
 
-        .people div:nth-child(2) div{
+        .people div:nth-child(2) div {
             background: #ce93d8;
         }
 
-        .people div:nth-child(3) div{
+        .people div:nth-child(3) div {
             background: #b39ddb;
         }
 
-        .people div:nth-child(4) div{
+        .people div:nth-child(4) div {
             background: #b39ddb;
         }
 
-        .people div:nth-child(5) div{
+        .people div:nth-child(5) div {
             background: #80cbc4;
         }
 
-        .people div:nth-child(6) div{
+        .people div:nth-child(6) div {
             background: #a5d6a7;
         }
 
@@ -117,7 +118,7 @@
                 margin: 0 auto;
             }
 
-            .content{
+            .content {
             }
 
             .channels {
@@ -152,6 +153,12 @@
 
         .brand {
             font-family: "Pacifico", "Helvetica Neue", sans-serif;
+        }
+
+        @media all and (display-mode: standalone) {
+            .hidden-standalone{
+                display: none
+            }
         }
     </style>
     <!--

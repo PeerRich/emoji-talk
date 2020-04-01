@@ -18,7 +18,9 @@ export default function App() {
   return (
     <div className="wrapper">
       <Hidden smUp>
-        <AddToHomeScreenDialog />
+        <div className="hidden-standalone">
+          <AddToHomeScreenDialog />
+        </div>
       </Hidden>
       <Paper className="app">
         <div style={{width: "100%", height: "100%"}}>
