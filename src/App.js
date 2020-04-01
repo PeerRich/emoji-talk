@@ -10,7 +10,7 @@ import Tab from "@material-ui/core/Tab";
 import Divider from "@material-ui/core/Divider";
 
 export default function App() {
-  let inChannel = true;
+  let inChannel = false;
   let isEmpty = false;
 
   return (
