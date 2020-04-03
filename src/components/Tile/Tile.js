@@ -56,7 +56,8 @@ export default function Tile(props) {
 
   return (
     <div>
-      {getAudioComponent()}</div>
+      {getAudioComponent()}
+    </div>
     /*<div className={getClassNames()}>
       <div className="background" />
       {getLoadingComponent()}

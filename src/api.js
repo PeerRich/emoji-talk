@@ -1,5 +1,4 @@
-const newRoomEndpoint =
-  "https://fu6720epic.execute-api.us-west-2.amazonaws.com/default/dailyWwwApiDemoNewCall";
+const newRoomEndpoint = "https://fu6720epic.execute-api.us-west-2.amazonaws.com/default/dailyWwwApiDemoNewCall";
 
 /**
  * Create a short-lived room for demo purposes.

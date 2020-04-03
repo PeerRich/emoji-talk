@@ -151,6 +151,7 @@ export default function Call() {
   return (
     <div>
       <Channel/>
+      {/*
       <div className="call">
         {message && (
           <CallMessage
@@ -159,13 +160,14 @@ export default function Call() {
             isError={message.isError}
           />
         )}
-        <div style={{display: "none"}} className="large-tiles">
+        <div className="large-tiles">
         {!message
           ? largeTiles
           : null }
       </div>
-        <div  style={{display: "none"}} className="small-tiles">{smallTiles}</div>
+        <div className="small-tiles">{smallTiles}</div>
       </div>
+      */}
     </div>
   );
 }
