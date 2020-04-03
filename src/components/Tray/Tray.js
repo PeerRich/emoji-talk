@@ -91,7 +91,7 @@ export default function Tray(props) {
   }, [callObject]);
 
   return (
-    <div className="tray">
+    <>
       {/*
       <TrayButton
         type={TYPE_MUTE_CAMERA}
@@ -123,6 +123,6 @@ export default function Tray(props) {
         onClick={leaveCall}
       />
       */}
-    </div>
+    </>
   );
 }

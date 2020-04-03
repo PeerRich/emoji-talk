@@ -41,7 +41,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function BottomAppBar() {
+export default function BottomAppBar(props) {
   const classes = useStyles();
   const muted = true;
 
@@ -58,9 +58,7 @@ export default function BottomAppBar() {
             <ShareIcon style={{color: "#fff"}} />
           </Fab>
           <div className={classes.grow} />
-          <IconButton color="inherit">
-            {muted ? <MicOffIcon style={{color: "#fff"}} /> : <MicOnIcon style={{color: "#fff"}} />}
-          </IconButton>
+            {props.muteIcon}
           <IconButton edge="end" color="inherit">
             <MoreIcon />
           </IconButton>

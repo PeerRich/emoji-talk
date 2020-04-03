@@ -1,11 +1,3 @@
-.tray-button {
-  width: 44x;
-  height: 44px;
-  border: none;
-  background-color: transparent;
-  margin: 0 5px;
-}
-
 .tray-button:disabled {
   opacity: 33%;
 }

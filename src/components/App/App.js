@@ -209,10 +209,6 @@ export default function App() {
                 isEmpty ? <EmptyScreen/>
                   : <CallObjectContext.Provider value={callObject}>
                     <Call roomUrl={roomUrl}/>
-                    <Tray
-                      disabled={!enableCallButtons}
-                      onClickLeaveCall={startLeavingCall}
-                    />
                   </CallObjectContext.Provider>
                 : <div style={{
                   justifyContent: "center",
@@ -252,7 +248,14 @@ export default function App() {
         </div>
         <div className="channels">
           <div className="bottomAppBarWrapper">
-            <BottomAppBar/>
+            <BottomAppBar muteIcon={
+              <CallObjectContext.Provider value={callObject}>
+                <Tray
+                  disabled={!enableCallButtons}
+                  onClickLeaveCall={startLeavingCall}
+                />
+              </CallObjectContext.Provider>
+            }/>
           </div>
           <div className="EmojiPickerWrapper">
             <Divider/>

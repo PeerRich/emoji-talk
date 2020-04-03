@@ -6,6 +6,7 @@ import Icon, {
   TYPE_SCREEN,
   TYPE_LEAVE
 } from "../Icon/Icon";
+import IconButton from "@material-ui/core/IconButton";
 
 /**
  * Props:
@@ -17,13 +18,14 @@ import Icon, {
  */
 export default function TrayButton(props) {
   return (
-    <button
+    <IconButton
+      color="inherit"
       disabled={props.disabled}
       onClick={props.onClick}
       className={"tray-button" + (props.newButtonGroup ? " new-group" : "")}
     >
       <Icon type={props.type} highlighted={props.highlighted} />
-    </button>
+    </IconButton>
   );
 }
 
