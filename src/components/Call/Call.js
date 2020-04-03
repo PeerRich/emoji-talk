@@ -1,4 +1,4 @@
-import React, { useEffect, useContext, useReducer } from "react";
+import React, {useEffect, useContext, useReducer} from "react";
 import "./Call.css";
 import Tile from "../Tile/Tile";
 import CallObjectContext from "../../CallObjectContext";
@@ -15,7 +15,7 @@ import {
   containsScreenShare,
   getMessage
 } from "./callState";
-import { logDailyEvent } from "../../logUtils";
+import {logDailyEvent} from "../../logUtils";
 import Channel from "../Channel";
 
 export default function Call() {
@@ -112,7 +112,7 @@ export default function Call() {
    */
   useEffect(() => {
     const t = setTimeout(() => {
-      dispatch({ type: CLICK_ALLOW_TIMEOUT });
+      dispatch({type: CLICK_ALLOW_TIMEOUT});
     }, 2500);
 
     return function cleanup() {
@@ -152,20 +152,21 @@ export default function Call() {
     <div>
       <Channel/>
       <div className="call">
-      {message && (
-        <CallMessage
-          header={message.header}
-          detail={message.detail}
-          isError={message.isError}
-        />
-      )}
-      <div className="large-tiles">
+        {message && (
+          <CallMessage
+            header={message.header}
+            detail={message.detail}
+            isError={message.isError}
+          />
+        )}
+        {/*<div className="large-tiles">
         {!message
           ? largeTiles
-          : null /* Avoid showing large tiles to make room for the message */}
+          : null }
       </div>
-      <div className="small-tiles">{smallTiles}</div>
-    </div>
+        <div className="small-tiles">{smallTiles}</div>
+        */}
+      </div>
     </div>
   );
 }

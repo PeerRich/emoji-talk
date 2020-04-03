@@ -25,7 +25,6 @@
     "start": "PORT=3002 serve build",
     "eject": "react-scripts eject"
   },
-  "homepage": "react-demo",
   "eslintConfig": {
     "extends": "react-app"
   },
