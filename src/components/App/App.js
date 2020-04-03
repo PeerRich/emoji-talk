@@ -209,6 +209,10 @@ export default function App() {
                 isEmpty ? <EmptyScreen/>
                   : <CallObjectContext.Provider value={callObject}>
                     <Call roomUrl={roomUrl}/>
+                    <Tray
+                      disabled={!enableCallButtons}
+                      onClickLeaveCall={startLeavingCall}
+                    />
                   </CallObjectContext.Provider>
                 : <div style={{
                   justifyContent: "center",
@@ -229,8 +233,8 @@ export default function App() {
                       The anonymous voice chat community
                     </Typography>
                     <Typography variant="body2" component="p">
-                      Join emoji channels and talk to strangers. You can mute a person with one <i>tap</i>, or
-                      permanently block them with a <i>double-tap</i>. No account. No download. It's that simple.
+                      Join emoji channels and socalise with strangers about your favorite topics. You can mute a person with one <i>tap</i>{/*, or
+                      permanently block them with a <i>double-tap</i>*/}. No account. No down load. It's that simple.
                     </Typography>
                     <div style={{display: "flex", margin: "20px"}}>
                       <StartButton
@@ -249,12 +253,7 @@ export default function App() {
         <div className="channels">
           <div className="bottomAppBarWrapper">
             <BottomAppBar muteIcon={
-              <CallObjectContext.Provider value={callObject}>
-                <Tray
-                  disabled={!enableCallButtons}
-                  onClickLeaveCall={startLeavingCall}
-                />
-              </CallObjectContext.Provider>
+              <div></div>
             }/>
           </div>
           <div className="EmojiPickerWrapper">

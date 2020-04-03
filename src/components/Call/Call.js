@@ -159,13 +159,12 @@ export default function Call() {
             isError={message.isError}
           />
         )}
-        {/*<div className="large-tiles">
+        <div style={{display: "none"}} className="large-tiles">
         {!message
           ? largeTiles
           : null }
       </div>
-        <div className="small-tiles">{smallTiles}</div>
-        */}
+        <div  style={{display: "none"}} className="small-tiles">{smallTiles}</div>
       </div>
     </div>
   );
