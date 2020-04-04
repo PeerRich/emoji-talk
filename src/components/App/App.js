@@ -234,7 +234,7 @@ export default function App() {
                     </Typography>
                     <Typography variant="body2" component="p">
                       Join emoji channels and socalise with strangers about your favorite topics. You can mute a person with one <i>tap</i>{/*, or
-                      permanently block them with a <i>double-tap</i>*/}. No account. No down load. It's that simple.
+                      permanently block them with a <i>double-tap</i>*/}. No account. No download required. It's that simple.
                     </Typography>
                     <div style={{display: "flex", margin: "20px"}}>
                       <StartButton
