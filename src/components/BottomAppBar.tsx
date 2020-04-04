@@ -46,9 +46,9 @@ export default function BottomAppBar(props: any) {
         <ShareButton
         config={{
           params: {
-            title: 'My share',
-            text: 'Check out this amazing react-share-api library',
-            url: 'https://github.com/marcolanaro/react-web-share-api',
+            title: 'EmojiTalkie',
+            text: 'Check out the anonymous voice chat community',
+            url: 'https://emojitalkie.com',
           },
           /* tslint:disable-next-line:no-console */
           onShareSuccess: () => console.log('Success'),

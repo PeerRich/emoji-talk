@@ -2,7 +2,7 @@ import * as React from 'react';
 import webShare, {WebShareInterface} from 'react-web-share-api';
 import ShareSnackbar from "./ShareSnackbar";
 import Toolbar from "@material-ui/core/Toolbar";
-import ShareIcon from "@material-ui/core/SvgIcon/SvgIcon";
+import ShareIcon from '@material-ui/icons/Share';
 import Fab from "@material-ui/core/Fab";
 
 
