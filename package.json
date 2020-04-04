@@ -15,6 +15,7 @@
     "react-dom": "^16.13.0",
     "react-scripts": "3.4.0",
     "react-twemoji": "^0.2.3",
+    "react-web-share-api": "0.0.2",
     "serve": "^11.3.0",
     "typescript": "^3.8.3"
   },
