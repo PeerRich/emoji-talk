@@ -6,6 +6,6 @@ import BrowserUnsupported from "./components/BrowserUnsupported/BrowserUnsupport
 import DailyIframe from "@daily-co/daily-js";
 
 ReactDOM.render(
-  !DailyIframe.supportedBrowser().supported ? <App /> : <BrowserUnsupported />,
+  DailyIframe.supportedBrowser().supported ? <App /> : <BrowserUnsupported />,
   document.getElementById("root")
 );

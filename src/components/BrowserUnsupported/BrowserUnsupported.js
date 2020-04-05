@@ -17,36 +17,34 @@ import {ChannelWrapper} from "../App/App";
 export default function BrowserUnsupported() {
   return (
     <div className="wrapper">
-      <Paper className="app">
-        <div style={{width: "100%", height: "100%"}}>
-          <div className="content">
-            <div style={{
-              justifyContent: "center",
-              alignItems: "center",
-              flexDirection: "column",
-              display: "flex",
-            }}>
-              <div style={{textAlign: "center", padding: "10% 0px", maxWidth: 450}}>
-                <img src="https://twemoji.maxcdn.com/v/12.1.5/svg/1f44b.svg"
-                     style={{height: 100, width: 100, marginBottom: 20}}/>
-                <Typography style={{fontSize: 14}} color="textSecondary" gutterBottom>
-                  Hello Stranger,
-                </Typography>
-                <Typography variant="h5" component="h2">
-                  Welcome to <Emoji>📻</Emoji> <strong className="brand">EmojiTalkie</strong>
-                </Typography>
-                <Typography style={{marginBottom: 12}} color="textSecondary">
-                  The anonymous voice chat community
-                </Typography>
-                <Typography variant="body2" component="p">
-                  Looks like you need to upgrade or change your browser to join voice chats. See&nbsp;
-                  <a href="https://help.daily.co/en/articles/3179421-what-browser-version-does-daily-co-require">
-                    this page
-                  </a>
-                  &nbsp;for help getting on a supported browser version. If you're on an iPhone, try the latest Safari
-                  Browser.
-                </Typography>
-              </div>
+      <Paper className="app" style={{height: "auto", margin: "10% auto"}}>
+        <div style={{width: "100%"}}>
+          <div style={{
+            justifyContent: "center",
+            alignItems: "center",
+            flexDirection: "column",
+            display: "flex",
+          }}>
+            <div style={{textAlign: "center", padding: "20% 0px", maxWidth: 450}}>
+              <img src="https://twemoji.maxcdn.com/v/12.1.5/svg/1f613.svg"
+                   style={{height: 100, width: 100, marginBottom: 20}}/>
+              <Typography style={{fontSize: 14}} color="textSecondary" gutterBottom>
+                Browser not supported
+              </Typography>
+              <Typography variant="h5" component="h2">
+                in order to use <Emoji>📻</Emoji> <strong className="brand">EmojiTalkie</strong>
+              </Typography>
+              <Typography style={{marginBottom: 12}} color="textSecondary">
+                The anonymous voice chat community
+              </Typography>
+              <Typography variant="body2" component="p">
+                Looks like you need to upgrade or change your browser to join voice chats. See&nbsp;
+                <a href="https://help.daily.co/en/articles/3179421-what-browser-version-does-daily-co-require">
+                  this page
+                </a>
+                &nbsp;for help getting on a supported browser version. If you're on an iPhone, try the latest Safari
+                Browser.
+              </Typography>
             </div>
           </div>
         </div>
