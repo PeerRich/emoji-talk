@@ -18,6 +18,7 @@ import Typography from "@material-ui/core/Typography";
 import {Emoji} from "../src/helpers";
 
 import BottomAppBar from "../src/components/BottomAppBar";
+import AddToHomeScreenDialog from "../src/components/AddToHomeScreenDialog";
 
 const STATE_IDLE = "STATE_IDLE";
 const STATE_CREATING = "STATE_CREATING";
@@ -205,9 +206,7 @@ export default function Index(props) {
     <div className="wrapper">
       <Hidden smUp>
         <div className="hidden-standalone">
-          {/*
           <AddToHomeScreenDialog/>
-          */}
         </div>
       </Hidden>
       <Paper className="app">
