@@ -4,7 +4,7 @@ import React from "react";
 export default function EmojiPicker() {
   return (
       <Picker set="twitter"
-              emojiSize={38}
+              emojiSize={31}
               useButton={false}
               showSkinTones={false}
               showPreview={false}
