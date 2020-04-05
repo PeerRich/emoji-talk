@@ -30,6 +30,20 @@ const STATE_JOINED = "STATE_JOINED";
 const STATE_LEAVING = "STATE_LEAVING";
 const STATE_ERROR = "STATE_ERROR";
 
+
+export function ChannelWrapper() {
+  return <div className="EmojiPickerWrapper">
+    <Divider/>
+    <Tabs variant="fullWidth"
+          indicatorColor="primary"
+          textColor="primary">
+      <Tab label="Global"/>
+      <Tab label="Local"/>
+    </Tabs>
+    <EmojiPicker/>
+  </div>;
+}
+
 export default function App() {
   const [appState, setAppState] = useState(STATE_IDLE);
   const [roomUrl, setRoomUrl] = useState(null);
@@ -233,8 +247,10 @@ export default function App() {
                       The anonymous voice chat community
                     </Typography>
                     <Typography variant="body2" component="p">
-                      Join emoji channels and socalise with strangers about your favorite topics. You can mute a person with one <i>tap</i>{/*, or
-                      permanently block them with a <i>double-tap</i>*/}. No account. No download required. It's that simple.
+                      Join emoji channels and socalise with strangers about your favorite topics. You can mute a person
+                      with one <i>tap</i>{/*, or
+                      permanently block them with a <i>double-tap</i>*/}. No account. No download required. It's that
+                      simple.
                     </Typography>
                     <div style={{display: "flex", margin: "20px"}}>
                       <StartButton
@@ -261,16 +277,9 @@ export default function App() {
               </CallObjectContext.Provider>
             }/>
           </div>
-          <div className="EmojiPickerWrapper">
-            <Divider/>
-            <Tabs variant="fullWidth"
-                  indicatorColor="primary"
-                  textColor="primary">
-              <Tab label="Global"/>
-              <Tab label="Local"/>
-            </Tabs>
-            <EmojiPicker/>
-          </div>
+
+          <ChannelWrapper/>
+
         </div>
       </Paper>
     </div>
