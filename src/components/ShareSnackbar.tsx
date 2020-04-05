@@ -5,6 +5,7 @@ import Slide, { SlideProps } from '@material-ui/core/Slide';
 import ShareIcon from '@material-ui/icons/Share';
 import Fab from "@material-ui/core/Fab";
 import {makeStyles} from "@material-ui/core/styles";
+import CopyToClipboard from "react-copy-to-clipboard";
 
 const useStyles = makeStyles((theme) => ({
   fabButton: {
@@ -25,6 +26,7 @@ function TransitionUp(props: TransitionProps) {
 export default function ShareSnackbar() {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
+  const [copy, setCopy] = React.useState(false);
   const [transition, setTransition] = React.useState<
   React.ComponentType<TransitionProps> | undefined
   >(undefined);
@@ -38,11 +40,18 @@ export default function ShareSnackbar() {
     setOpen(false);
   };
 
+  const handleCopy = () => {
+    setCopy(true);
+  };
+
   return (
   <>
-    <Fab onClick={handleClick(TransitionUp)} color="secondary" aria-label="add" className={classes.fabButton}>
-      <ShareIcon style={{color: "#fff"}} />
-    </Fab>
+    <CopyToClipboard text={window.location.href}
+                     onCopy={handleCopy}>
+      <Fab onClick={handleClick(TransitionUp)} color="secondary" aria-label="add" className={classes.fabButton}>
+        <ShareIcon style={{color: "#fff"}} />
+      </Fab>
+    </CopyToClipboard>
     <Snackbar
     open={open}
     onClose={handleClose}
