@@ -1,22 +1,11 @@
 import React from 'react';
-import Button from '@material-ui/core/Button';
 import Snackbar from '@material-ui/core/Snackbar';
 import Slide, { SlideProps } from '@material-ui/core/Slide';
 import ShareIcon from '@material-ui/icons/Share';
 import Fab from "@material-ui/core/Fab";
-import {makeStyles} from "@material-ui/core/styles";
 import CopyToClipboard from "react-copy-to-clipboard";
 
-const useStyles = makeStyles((theme) => ({
-  fabButton: {
-    position: 'absolute',
-    zIndex: 1,
-    top: -30,
-    left: 0,
-    right: 0,
-    margin: '0 auto',
-  },
-}));
+
 type TransitionProps = Omit<SlideProps, 'direction'>;
 
 function TransitionUp(props: TransitionProps) {
@@ -24,9 +13,7 @@ function TransitionUp(props: TransitionProps) {
 }
 
 export default function ShareSnackbar() {
-  const classes = useStyles();
   const [open, setOpen] = React.useState(false);
-  const [copy, setCopy] = React.useState(false);
   const [transition, setTransition] = React.useState<
   React.ComponentType<TransitionProps> | undefined
   >(undefined);
@@ -40,15 +27,19 @@ export default function ShareSnackbar() {
     setOpen(false);
   };
 
-  const handleCopy = () => {
-    setCopy(true);
-  };
+  let url = "https://emojitalkie.com/";
 
   return (
   <>
-    <CopyToClipboard text={window.location.href}
-                     onCopy={handleCopy}>
-      <Fab onClick={handleClick(TransitionUp)} color="secondary" aria-label="add" className={classes.fabButton}>
+    <CopyToClipboard text={url} onCopy={handleClick(TransitionUp)}>
+      <Fab color="secondary" aria-label="add" style={{
+        position: 'absolute',
+        zIndex: 1,
+        top: -30,
+        left: 0,
+        right: 0,
+        margin: '0 auto',
+      }}>
         <ShareIcon style={{color: "#fff"}} />
       </Fab>
     </CopyToClipboard>

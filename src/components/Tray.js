@@ -1,13 +1,13 @@
 import React, { useContext, useEffect, useState } from "react";
-import "./Tray.css";
+/*import "./Tray.css";*/
 import TrayButton, {
   TYPE_MUTE_CAMERA,
   TYPE_MUTE_MIC,
   TYPE_SCREEN,
   TYPE_LEAVE
-} from "../TrayButton/TrayButton";
-import CallObjectContext from "../../CallObjectContext";
-import { logDailyEvent } from "../../logUtils";
+} from "./TrayButton";
+import CallObjectContext from "../CallObjectContext";
+import { logDailyEvent } from "../logUtils";
 import DailyIframe from "@daily-co/daily-js";
 
 /**

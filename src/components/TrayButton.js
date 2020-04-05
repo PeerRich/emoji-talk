@@ -1,11 +1,11 @@
 import React from "react";
-import "./TrayButton.css";
+/*import "./TrayButton.css";*/
 import Icon, {
   TYPE_MUTE_CAMERA,
   TYPE_MUTE_MIC,
   TYPE_SCREEN,
   TYPE_LEAVE
-} from "../Icon/Icon";
+} from "./Icon";
 import IconButton from "@material-ui/core/IconButton";
 
 /**

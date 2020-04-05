@@ -1,5 +1,5 @@
 import React from "react";
-import "./CallMessage.css";
+/*import "./CallMessage.css";*/
 
 /**
  * Props:

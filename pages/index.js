@@ -1,27 +1,23 @@
 import React, {useEffect, useState, useCallback} from "react";
-import Call from "../Call/Call";
-import StartButton from "../StartButton/StartButton";
-import api from "../../api";
-import "./App.css";
-import Tray from "../Tray/Tray";
-import CallObjectContext from "../../CallObjectContext";
-import {roomUrlFromPageUrl, pageUrlFromRoomUrl} from "../../urlUtils";
+import Call from "../src/components/Call";
+import StartButton from "../src/components/StartButton";
+import api from "../src/api";
+import Tray from "../src/components/Tray";
+import CallObjectContext from "../src/CallObjectContext";
+import {roomUrlFromPageUrl, pageUrlFromRoomUrl} from "../src/urlUtils";
 import DailyIframe from "@daily-co/daily-js";
-import {logDailyEvent} from "../../logUtils";
-import BottomAppBar from "../BottomAppBar";
+import {logDailyEvent} from "../src/logUtils";
 import Paper from "@material-ui/core/Paper";
-import EmojiPicker from "../EmojiPicker";
-import HomeScreen from "../HomeScreen";
-import EmptyScreen from "../EmptyScreen";
-import Channel from "../Channel";
+import EmojiPicker from "../src/components/EmojiPicker";
+import EmptyScreen from "../src/components/EmptyScreen";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import Divider from "@material-ui/core/Divider";
-import AddToHomeScreenDialog from "../AddToHomeScreenDialog";
 import Hidden from "@material-ui/core/Hidden";
 import Typography from "@material-ui/core/Typography";
-import {Emoji} from "../../helpers";
-import Button from "@material-ui/core/Button";
+import {Emoji} from "../src/helpers";
+
+import BottomAppBar from "../src/components/BottomAppBar";
 
 const STATE_IDLE = "STATE_IDLE";
 const STATE_CREATING = "STATE_CREATING";
@@ -44,7 +40,7 @@ export function ChannelWrapper() {
   </div>;
 }
 
-export default function App() {
+export default function Index(props) {
   const [appState, setAppState] = useState(STATE_IDLE);
   const [roomUrl, setRoomUrl] = useState(null);
   const [callObject, setCallObject] = useState(null);
@@ -209,7 +205,9 @@ export default function App() {
     <div className="wrapper">
       <Hidden smUp>
         <div className="hidden-standalone">
+          {/*
           <AddToHomeScreenDialog/>
+          */}
         </div>
       </Hidden>
       <Paper className="app">
@@ -235,8 +233,10 @@ export default function App() {
                   display: "flex",
                 }}>
                   <div style={{textAlign: "center", padding: "10% 0px", maxWidth: 450}}>
+
                     <img src="https://twemoji.maxcdn.com/v/12.1.5/svg/1f44b.svg"
                          style={{height: 100, width: 100, marginBottom: 20}}/>
+
                     <Typography style={{fontSize: 14}} color="textSecondary" gutterBottom>
                       Hello Stranger,
                     </Typography>
@@ -268,7 +268,8 @@ export default function App() {
         </div>
         <div className="channels">
           <div className="bottomAppBarWrapper">
-            <BottomAppBar muteIcon={
+            <BottomAppBar emoji={props.emoji}
+                          muteIcon={
               <CallObjectContext.Provider value={callObject}>
                 <Tray
                   disabled={!enableCallButtons}

@@ -1,46 +1,34 @@
 {
-  "name": "react-demo",
-  "version": "0.1.0",
+  "name": "nextjs-with-typescript",
+  "version": "4.0.0",
   "private": true,
   "dependencies": {
     "@daily-co/daily-js": "^0.9.986",
-    "@material-ui/core": "^4.9.8",
-    "@material-ui/icons": "^4.9.1",
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.5.0",
-    "@testing-library/user-event": "^7.2.1",
+    "@material-ui/core": "latest",
+    "@material-ui/icons": "latest",
     "@types/react-copy-to-clipboard": "^4.3.0",
+    "clsx": "latest",
     "emoji-mart": "^3.0.0",
     "firebase": "^7.13.2",
-    "react": "^16.13.0",
+    "next": "latest",
+    "react": "latest",
     "react-copy-to-clipboard": "^5.0.2",
-    "react-dom": "^16.13.0",
+    "react-dom": "latest",
     "react-scripts": "3.4.0",
     "react-twemoji": "^0.2.3",
-    "react-web-share-api": "0.0.2",
-    "serve": "^11.3.0",
-    "typescript": "^3.8.3"
+    "react-web-share-api": "0.0.2"
   },
   "scripts": {
-    "dev": "PORT=3002 react-scripts start",
-    "build": "react-scripts build",
-    "postbuild": "mv build temp-build && mkdir build && mv temp-build build && mv build/temp-build build/react-demo",
-    "start": "PORT=3002 serve build",
-    "eject": "react-scripts eject"
+    "dev": "next",
+    "build": "next build",
+    "start": "next start",
+    "post-update": "echo \"codesandbox preview only, need an update\" && yarn upgrade --latest"
   },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "devDependencies": {
+    "@types/next": "latest",
+    "@types/node": "latest",
+    "@types/react": "latest",
+    "@types/react-dom": "latest",
+    "typescript": "latest"
   }
 }

@@ -1,8 +1,8 @@
 import React, {useEffect, useContext, useReducer} from "react";
-import "./Call.css";
-import Tile from "../Tile/Tile";
-import CallObjectContext from "../../CallObjectContext";
-import CallMessage from "../CallMessage/CallMessage";
+/*import "./Call.css";*/
+import Tile from "./Tile";
+import CallObjectContext from "../CallObjectContext";
+import CallMessage from "./CallMessage";
 import {
   initialCallState,
   CLICK_ALLOW_TIMEOUT,
@@ -15,8 +15,8 @@ import {
   containsScreenShare,
   getMessage
 } from "./callState";
-import {logDailyEvent} from "../../logUtils";
-import Channel from "../Channel";
+import {logDailyEvent} from "../logUtils";
+import Channel from "./Channel";
 
 export default function Call() {
   const callObject = useContext(CallObjectContext);

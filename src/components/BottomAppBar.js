@@ -5,8 +5,15 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
 import {Emoji} from "../helpers";
-import ShareButton from "./shareButton";
 import MainMenu from "./MainMenu";
+
+import dynamic from 'next/dynamic'
+
+const ShareButton = dynamic(
+() => import('./shareButton'),
+{ ssr: false }
+);
+
 
 const useStyles = makeStyles((theme) => ({
   text: {
@@ -30,9 +37,8 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function BottomAppBar(props: any) {
+export default function BottomAppBar(props) {
   const classes = useStyles();
-  const muted = true;
 
   return (
   <div className={classes.bottomBar}>
@@ -41,19 +47,17 @@ export default function BottomAppBar(props: any) {
       <Toolbar>
         <strong style={{display: "inline-block", marginLeft: -10}}>#</strong>
         <IconButton disabled edge="start" color="inherit" aria-label="open drawer">
-          <Emoji>😊</Emoji>
+          <Emoji>{props.emoji}</Emoji>
         </IconButton>
-        <ShareButton
+         <ShareButton
         config={{
           params: {
             title: 'EmojiTalkie',
             text: 'Check out the anonymous voice chat community',
             url: 'https://emojitalkie.com',
           },
-          /* tslint:disable-next-line:no-console */
           onShareSuccess: () => console.log('Success'),
-          /* tslint:disable-next-line:no-console */
-          onShareError: (error: Error) => console.log('error', error),
+          onShareError: (error) => console.log('error', error),
         }}
         />
         <div className={classes.grow}/>

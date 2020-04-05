@@ -1,7 +1,25 @@
-# A video chat app using React and the Daily.co JavaScript API
+# Next.js with TypeScript example
 
-This demo is meant to showcase a basic but complete video chat web app using React and the low-level Daily.co CallObject API. The CallObject API gives you direct access to the audio and video streams, letting you build your app however you'd like with those primitives.
+## How to use
 
-Stay tuned for a thorough blog post walking through building this demo app!
+Download the example [or clone the repo](https://github.com/mui-org/material-ui):
 
-For information on building and running this demo locally, see the [README at the root of this repo](../README.md).
+```sh
+curl https://codeload.github.com/mui-org/material-ui/tar.gz/master | tar -xz --strip=2  material-ui-master/examples/nextjs-with-typescript
+cd nextjs-with-typescript
+```
+
+Install it and run:
+
+```sh
+npm install
+npm run dev
+```
+
+or:
+
+[![Edit on CodeSandbox](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/github/mui-org/material-ui/tree/master/examples/nextjs-with-typescript)
+
+## The idea behind the example
+
+[Next.js](https://github.com/zeit/next.js) is a framework for server-rendered React apps.

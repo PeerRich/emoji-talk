@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
-import "./Tile.css";
-import Channel from "../Channel";
+/*import "./Tile.css";*/
+import Channel from "./Channel";
 
 /**
  * Props

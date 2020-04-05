@@ -1,18 +1,18 @@
 import React from "react";
-import "./BrowserUnsupported.css";
+import "./BrowserUnsupported/BrowserUnsupported.css";
 import Typography from "@material-ui/core/Typography";
 import {Emoji} from "../../helpers";
-import StartButton from "../StartButton/StartButton";
+import StartButton from "./StartButton";
 import Paper from "@material-ui/core/Paper/Paper";
 import BottomAppBar from "../BottomAppBar";
 import CallObjectContext from "../../CallObjectContext";
-import Tray from "../Tray/Tray";
+import Tray from "./Tray";
 import Divider from "@material-ui/core/Divider";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import EmojiPicker from "../EmojiPicker";
 import Channel from "../Channel";
-import {ChannelWrapper} from "../App/App";
+import {ChannelWrapper} from "../App";
 
 export default function BrowserUnsupported() {
   return (

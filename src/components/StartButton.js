@@ -1,5 +1,5 @@
 import React from "react";
-import "./StartButton.css";
+/*import "./StartButton.css";*/
 import Button from "@material-ui/core/Button";
 
 /**
