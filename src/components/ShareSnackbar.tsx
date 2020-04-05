@@ -55,8 +55,9 @@ export default function ShareSnackbar() {
     <Snackbar
     open={open}
     onClose={handleClose}
+    onClick={handleClose}
     TransitionComponent={transition}
-    message="Your channel link has been copied to clipboard"
+    message={<span>Your channel link has been copied to clipboard: <u style={{color: "#f50057"}}>{window.location.href}</u></span>}
     />
   </>
   );

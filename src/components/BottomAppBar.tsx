@@ -4,9 +4,9 @@ import AppBar from '@material-ui/core/AppBar';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
-import MoreIcon from '@material-ui/icons/MoreVert';
 import {Emoji} from "../helpers";
 import ShareButton from "./shareButton";
+import MainMenu from "./MainMenu";
 
 const useStyles = makeStyles((theme) => ({
   text: {
@@ -58,9 +58,7 @@ export default function BottomAppBar(props: any) {
         />
         <div className={classes.grow}/>
         {props.muteIcon}
-        <IconButton edge="end" color="inherit">
-          <MoreIcon/>
-        </IconButton>
+        <MainMenu/>
       </Toolbar>
     </AppBar>
   </div>
