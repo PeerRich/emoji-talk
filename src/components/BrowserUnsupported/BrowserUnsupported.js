@@ -17,7 +17,7 @@ import {ChannelWrapper} from "../App/App";
 export default function BrowserUnsupported() {
   return (
     <div className="wrapper">
-      <Paper className="app" style={{height: "auto", margin: "10% auto"}}>
+      <Paper className="app" style={{height: "auto", margin: "10% auto", padding: 16}}>
         <div style={{width: "100%"}}>
           <div style={{
             justifyContent: "center",

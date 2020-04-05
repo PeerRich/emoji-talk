@@ -135,6 +135,10 @@ body {
   .hidden-standalone {
     display: none
   }
+
+  .bottomAppBarWrapper header{
+    padding-bottom: 20px;
+  }
 }
 
 .emoji-mart-category-list{
