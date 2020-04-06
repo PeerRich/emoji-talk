@@ -20,7 +20,8 @@ function SimpleDialog(props: SimpleDialogProps) {
 
   if (!window.matchMedia('(display-mode: standalone)').matches) {
     return (
-    <Dialog maxWidth="xs" style={{textAlign: "center"}} onClose={handleClose} aria-labelledby="simple-dialog-title" open={open}>
+    <Dialog maxWidth="xs" style={{textAlign: "center"}} onClose={handleClose} aria-labelledby="simple-dialog-title"
+            open={open}>
       <DialogTitle id="simple-dialog-title">
         <img style={{
           margin: "0 auto",
@@ -31,9 +32,7 @@ function SimpleDialog(props: SimpleDialogProps) {
           height: 50,
           display: "block",
         }} src="https://twemoji.maxcdn.com/v/12.1.5/svg/1f4fb.svg"/>
-        <h1 style={{fontSize: "22px"}}>
-          <strong className="brand">EmojiTalkie</strong>
-        </h1>
+        <strong style={{fontSize: "22px", lineHeight: "52px"}} className="brand">EmojiTalkie</strong>
       </DialogTitle>
       <DialogContent>
         <DialogContentText id="alert-dialog-description">
@@ -47,7 +46,10 @@ function SimpleDialog(props: SimpleDialogProps) {
               top: 10,
               position: "relative"
             }} viewBox="0 0 50 50">
-              <path d="M30.3 13.7L25 8.4l-5.3 5.3-1.4-1.4L25 5.6l6.7 6.7z"/><path d="M24 7h2v21h-2z"/><path d="M35 40H15c-1.7 0-3-1.3-3-3V19c0-1.7 1.3-3 3-3h7v2h-7c-.6 0-1 .4-1 1v18c0 .6.4 1 1 1h20c.6 0 1-.4 1-1V19c0-.6-.4-1-1-1h-7v-2h7c1.7 0 3 1.3 3 3v18c0 1.7-1.3 3-3 3z"/>
+              <path d="M30.3 13.7L25 8.4l-5.3 5.3-1.4-1.4L25 5.6l6.7 6.7z"/>
+              <path d="M24 7h2v21h-2z"/>
+              <path
+              d="M35 40H15c-1.7 0-3-1.3-3-3V19c0-1.7 1.3-3 3-3h7v2h-7c-.6 0-1 .4-1 1v18c0 .6.4 1 1 1h20c.6 0 1-.4 1-1V19c0-.6-.4-1-1-1h-7v-2h7c1.7 0 3 1.3 3 3v18c0 1.7-1.3 3-3 3z"/>
             </SvgIcon>
             then 'Add to Home Screen'</strong>
         </DialogContentText>
