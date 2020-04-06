@@ -3,7 +3,7 @@ import Index from "./index";
 import Head from 'next/head';
 import React from "react";
 
-export default function Emoji() {
+export default function EmojiChannel() {
   const router = useRouter();
   /*TODO: @Karsten Disable all Non-Emoji Routes*/
 

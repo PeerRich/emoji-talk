@@ -5,7 +5,6 @@ import api from "../src/api";
 import Tray from "../src/components/Tray";
 import CallObjectContext from "../src/CallObjectContext";
 import {roomUrlFromPageUrl, pageUrlFromRoomUrl} from "../src/urlUtils";
-import DailyIframe from "@daily-co/daily-js";
 import {logDailyEvent} from "../src/logUtils";
 import Paper from "@material-ui/core/Paper";
 import EmojiPicker from "../src/components/EmojiPicker";
@@ -27,6 +26,8 @@ const STATE_JOINED = "STATE_JOINED";
 const STATE_LEAVING = "STATE_LEAVING";
 const STATE_ERROR = "STATE_ERROR";
 
+import DailyIframe from "@daily-co/daily-js"
+
 
 export function ChannelWrapper() {
   return <div className="EmojiPickerWrapper">
@@ -43,8 +44,17 @@ export function ChannelWrapper() {
 
 export default function Index(props) {
   const [appState, setAppState] = useState(STATE_IDLE);
+  const [supportsBrowser, setBrowserSupport] = useState(STATE_IDLE);
   const [roomUrl, setRoomUrl] = useState(null);
   const [callObject, setCallObject] = useState(null);
+
+  /**
+   * Check for Browser Support
+   */
+  useEffect(() => {
+    const supportsBrowser = DailyIframe.supportedBrowser().supported;
+    setBrowserSupport(supportsBrowser);
+  });
 
   /**
    * Creates a new call room.
@@ -153,6 +163,9 @@ export default function Index(props) {
     // Use initial state
     handleNewMeetingState();
 
+    // Check Browser
+    checkBrowser();
+
     // Listen for changes in state
     for (const event of events) {
       callObject.on(event, handleNewMeetingState);
@@ -199,89 +212,124 @@ export default function Index(props) {
    */
   const enableStartButton = appState === STATE_IDLE;
 
-  let inChannel = false;
   let isEmpty = false;
 
-  return (
-    <div className="wrapper">
-      <Hidden smUp>
-        <div className="hidden-standalone">
-          <AddToHomeScreenDialog/>
-        </div>
-      </Hidden>
-      <Paper className="app">
-        <div style={{width: "100%", height: "100%"}}>
-          <div className="content">
-            <div>
-              {showCall ?
-                isEmpty ? <EmptyScreen/>
-                  : <CallObjectContext.Provider value={callObject}>
-                    <Call roomUrl={roomUrl}/>
-                    {/*
-                    TODO: not sure if this works
-                    <Tray
-                        disabled={!enableCallButtons}
-                        onClickLeaveCall={startLeavingCall}
-                      />
-                      */}
-                  </CallObjectContext.Provider>
-                : <div style={{
-                  justifyContent: "center",
-                  alignItems: "center",
-                  flexDirection: "column",
-                  display: "flex",
-                }}>
-                  <div style={{textAlign: "center", padding: "10% 0px", maxWidth: 450}}>
-
-                    <img src="https://twemoji.maxcdn.com/v/12.1.5/svg/1f44b.svg"
-                         style={{height: 100, width: 100, marginBottom: 20}}/>
-
-                    <Typography style={{fontSize: 14}} color="textSecondary" gutterBottom>
-                      Hello Stranger,
-                    </Typography>
-                    <Typography variant="h5" component="h2">
-                      Welcome to <Emoji>📻</Emoji> <strong className="brand">EmojiTalkie</strong>
-                    </Typography>
-                    <Typography style={{marginBottom: 12}} color="textSecondary">
-                      The anonymous voice chat community
-                    </Typography>
-                    <Typography variant="body2" component="p">
-                      Join emoji channels and socalise with strangers about your favorite topics. You can mute a person
-                      with one <i>tap</i>{/*, or
-                      permanently block them with a <i>double-tap</i>*/}. No account. No download required. It's that
-                      simple.
-                    </Typography>
-                    <div style={{display: "flex", margin: "20px"}}>
-                      <StartButton
-                        disabled={!enableStartButton}
-                        onClick={() => {
-                          createCall().then(url => startJoiningCall(url));
-                        }}
-                      />
-                    </div>
-                  </div>
-                </div>
-              }
+  return (<>
+      {supportsBrowser ? <div className="wrapper">
+          <Hidden smUp>
+            <div className="hidden-standalone">
+              <AddToHomeScreenDialog/>
             </div>
-          </div>
-        </div>
-        <div className="channels">
-          <div className="bottomAppBarWrapper">
-            <BottomAppBar emoji={props.emoji}
-                          muteIcon={
-              <CallObjectContext.Provider value={callObject}>
-                <Tray
-                  disabled={!enableCallButtons}
-                  onClickLeaveCall={startLeavingCall}
-                />
-              </CallObjectContext.Provider>
-            }/>
-          </div>
+          </Hidden>
+          <Paper className="app">
+            <div style={{width: "100%", height: "100%"}}>
+              <div className="content">
+                <div>
+                  {showCall ?
+                    isEmpty ? <EmptyScreen/>
+                      : <CallObjectContext.Provider value={callObject}>
+                        <Call roomUrl={roomUrl}/>
+                        {/*
+                      TODO: not sure if this works
+                      <Tray
+                          disabled={!enableCallButtons}
+                          onClickLeaveCall={startLeavingCall}
+                        />
+                        */}
+                      </CallObjectContext.Provider>
+                    : <div style={{
+                      justifyContent: "center",
+                      alignItems: "center",
+                      flexDirection: "column",
+                      display: "flex",
+                    }}>
+                      <div style={{textAlign: "center", padding: "10% 0px", maxWidth: 450}}>
 
-          <ChannelWrapper/>
+                        <img src="https://twemoji.maxcdn.com/v/12.1.5/svg/1f44b.svg"
+                             style={{height: 100, width: 100, marginBottom: 20}}/>
 
-        </div>
-      </Paper>
-    </div>
+                        <Typography style={{fontSize: 14}} color="textSecondary" gutterBottom>
+                          Hello Stranger,
+                        </Typography>
+                        <Typography variant="h5" component="h2">
+                          Welcome to <Emoji>📻</Emoji> <strong className="brand">EmojiTalkie</strong>
+                        </Typography>
+                        <Typography style={{marginBottom: 12}} color="textSecondary">
+                          The anonymous voice chat community
+                        </Typography>
+                        <Typography variant="body2" component="p">
+                          Join emoji channels and socalise with strangers about your favorite topics. You can mute a
+                          person
+                          with one <i>tap</i>{/*, or
+                      permanently block them with a <i>double-tap</i>*/}. No account. No download required. It's that
+                          simple.
+                        </Typography>
+                        <div style={{display: "flex", margin: "20px"}}>
+                          <StartButton
+                            disabled={!enableStartButton}
+                            onClick={() => {
+                              createCall().then(url => startJoiningCall(url));
+                            }}
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  }
+                </div>
+              </div>
+            </div>
+            <div className="channels">
+              <div className="bottomAppBarWrapper">
+                <BottomAppBar emoji={props.emoji}
+                              muteIcon={
+                                <CallObjectContext.Provider value={callObject}>
+                                  <Tray
+                                    disabled={!enableCallButtons}
+                                    onClickLeaveCall={startLeavingCall}
+                                  />
+                                </CallObjectContext.Provider>
+                              }/>
+              </div>
+
+              <ChannelWrapper/>
+
+            </div>
+          </Paper>
+        </div> :
+        <div className="wrapper">
+          <Paper className="app" style={{height: "auto", margin: "10% auto", padding: 16}}>
+            <div style={{width: "100%"}}>
+              <div style={{
+                justifyContent: "center",
+                alignItems: "center",
+                flexDirection: "column",
+                display: "flex",
+              }}>
+                <div style={{textAlign: "center", padding: "20% 0px", maxWidth: 450}}>
+                  <img src="https://twemoji.maxcdn.com/v/12.1.5/svg/1f613.svg"
+                       style={{height: 100, width: 100, marginBottom: 20}}/>
+                  <Typography style={{fontSize: 14}} color="textSecondary" gutterBottom>
+                    Browser not supported
+                  </Typography>
+                  <Typography variant="h5" component="h2">
+                    in order to use <Emoji>📻</Emoji> <strong className="brand">EmojiTalkie</strong>
+                  </Typography>
+                  <Typography style={{marginBottom: 12}} color="textSecondary">
+                    The anonymous voice chat community
+                  </Typography>
+                  <Typography variant="body2" component="p">
+                    Looks like you need to upgrade or change your browser to join voice chats. See&nbsp;
+                    <a href="https://help.daily.co/en/articles/3179421-what-browser-version-does-daily-co-require">
+                      this page
+                    </a>
+                    &nbsp;for help getting on a supported browser version. If you're on an iPhone, try the latest Safari
+                    Browser.
+                  </Typography>
+                </div>
+              </div>
+            </div>
+          </Paper>
+        </div>}
+    </>
   );
 }
