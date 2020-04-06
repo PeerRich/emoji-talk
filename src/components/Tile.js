@@ -55,14 +55,14 @@ export default function Tile(props) {
   }
 
   return (
-    <div>
+    /*<div>
       {getAudioComponent()}
-    </div>
-    /*<div className={getClassNames()}>
+    </div>*/
+    <div className={getClassNames()}>
       <div className="background" />
       {getLoadingComponent()}
       {getVideoComponent()}
       {getAudioComponent()}
-    </div>*/
+    </div>
   );
 }

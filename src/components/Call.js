@@ -151,7 +151,6 @@ export default function Call() {
   return (
     <div>
       <Channel/>
-      {/*
       <div className="call">
         {message && (
           <CallMessage
@@ -167,7 +166,6 @@ export default function Call() {
       </div>
         <div className="small-tiles">{smallTiles}</div>
       </div>
-      */}
     </div>
   );
 }
