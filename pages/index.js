@@ -163,9 +163,6 @@ export default function Index(props) {
     // Use initial state
     handleNewMeetingState();
 
-    // Check Browser
-    checkBrowser();
-
     // Listen for changes in state
     for (const event of events) {
       callObject.on(event, handleNewMeetingState);
