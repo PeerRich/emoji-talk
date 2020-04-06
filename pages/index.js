@@ -9,11 +9,9 @@ import {logDailyEvent} from "../src/logUtils";
 import Paper from "@material-ui/core/Paper";
 import EmojiPicker from "../src/components/EmojiPicker";
 import EmptyScreen from "../src/components/EmptyScreen";
-import Tabs from "@material-ui/core/Tabs";
-import Tab from "@material-ui/core/Tab";
-import Divider from "@material-ui/core/Divider";
 import Hidden from "@material-ui/core/Hidden";
 import Typography from "@material-ui/core/Typography";
+import Divider from "@material-ui/core/Divider";
 import {Emoji} from "../src/helpers";
 
 import BottomAppBar from "../src/components/BottomAppBar";
@@ -32,12 +30,14 @@ import DailyIframe from "@daily-co/daily-js"
 export function ChannelWrapper() {
   return <div className="EmojiPickerWrapper">
     <Divider/>
+    {/*
     <Tabs variant="fullWidth"
           indicatorColor="primary"
           textColor="primary">
       <Tab label="Global"/>
       <Tab label="Local"/>
     </Tabs>
+    */}
     <EmojiPicker/>
   </div>;
 }
