@@ -7,7 +7,6 @@ import CallObjectContext from "../src/CallObjectContext";
 import {roomUrlFromPageUrl, pageUrlFromRoomUrl} from "../src/urlUtils";
 import {logDailyEvent} from "../src/logUtils";
 import Paper from "@material-ui/core/Paper";
-import EmptyScreen from "../src/components/EmptyScreen";
 import Hidden from "@material-ui/core/Hidden";
 import Tooltip from "@material-ui/core/Tooltip";
 import Typography from "@material-ui/core/Typography";
@@ -249,10 +248,10 @@ export default function Index(props) {
                              style={{height: 100, width: 100, marginBottom: 20}}/>
 
                         <Typography style={{fontSize: 14}} color="textSecondary" gutterBottom>
-                          Hello YC Alumni,
+                          Hello YC Alumni and friends,
                         </Typography>
                         <Typography variant="h5" component="h2">
-                          Welcome to <Emoji>📻</Emoji> <strong className="brand">EmojiTalkie</strong>
+                          Welcome to <strong className="brand">EmojiTalkie</strong>
                         </Typography>
                         <Typography style={{marginBottom: 12}} color="textSecondary">
                           The anonymous voice chat community
@@ -260,7 +259,8 @@ export default function Index(props) {
                         <Typography variant="body2" component="p">
                           Join emoji channels and socalise with strangers about your favorite topics. {/*You can mute a
                           person with one <i>tap</i> , or
-                      permanently block them with a <i>double-tap</i>. */}No account registration. No download required. It's that
+                      permanently block them with a <i>double-tap</i>. */}No account registration. No download required.
+                          It's that
                           simple.
                         </Typography>
                         <div style={{display: "flex", margin: "20px"}}>
@@ -313,13 +313,15 @@ export default function Index(props) {
                             console.log("selected emoji: " + e.id);
 
                             /*router.push(emojiUrl, emojiUrl, { shallow: true });*/
+
+                            /* Leave current (if any) call first*/
                             startLeavingCall();
+
+                            /* Join new call based on chosen emoji*/
                             createCall().then(() => startJoiningCall("https://emojitalki.daily.co/" + e.id));
 
+                            /* TODO: Instead of starting the call from Picker, it should start from ComponentDidMount and Picker should just change Routes*/
                             /*Router.push('/' + emoji.native, '/' + emoji.native, { shallow: true })*/
-
-                            /* TODO:
-                            *  - green <Snackbar /> with: "Changed channel to {emoji}" or red <Snackbar/> with error*/
 
                           }}
                         showSkinTones={false}

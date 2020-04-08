@@ -215,9 +215,9 @@ export default function Call() {
           priority: <br/>
           <strong>Roadmap</strong>
           <ul>
+            <li>✅ <s>Show participants in each channel as a color</s></li>
             <li>Vastly increase connection to channels and show loading indicator</li>
             <li>Make URL copy & shareable</li>
-            <li>Show participants in each channel as a color</li>
             <li>Mute other participants</li>
             <li>Show your own audio level</li>
             <li>Safari Support</li>

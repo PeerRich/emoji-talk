@@ -34,7 +34,7 @@ export default function EmptyScreen() {
           You are the only one
         </Typography>
         <Typography className={classes.pos} color="textSecondary">
-          Invite a friend or join another random channel
+          Tell a friend or join another channel
         </Typography>
         {/*
         <Typography variant="body2" component="p">
@@ -42,9 +42,11 @@ export default function EmptyScreen() {
           permanently block them with a <i>double-tap</i>. No account. No download. It's that simple.
         </Typography>
         */}
-        <Button color="primary" variant="contained" style={{margin: "16px 4px"}} size="small">Invite friend</Button>
         <Tooltip title="Coming Soon" aria-label="Coming Soon">
-          <Button disabled color="primary" style={{margin: "16px 4px"}} size="small">random channel</Button>
+          <div>
+            <Button disabled color="primary" variant="contained" style={{margin: "16px 4px"}} size="small">Invite friend</Button>
+            <Button disabled color="primary" style={{margin: "16px 4px"}} size="small">random channel</Button>
+          </div>
         </Tooltip>
       </div>
     </div>
