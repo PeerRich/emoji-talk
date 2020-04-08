@@ -176,7 +176,7 @@ export default function Call() {
                 <ButtonBase className="volume-off-icon"
                             style={{position: "absolute", top: 0, width: "100%", height: "100%"}}>
                   <VolumeOffIcon style={{color: "#fff"}}/>
-                  {x + ": " + JSON.stringify(callState.participants[x])}
+                  <div style={{display: "none"}}>{x + ": " + JSON.stringify(callState.participants[x])}</div>
                 </ButtonBase>
               </Paper>
             </Grid>
