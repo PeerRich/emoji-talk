@@ -28,6 +28,7 @@ const STATE_LEAVING = "STATE_LEAVING";
 const STATE_ERROR = "STATE_ERROR";
 
 import DailyIframe from "@daily-co/daily-js"
+import StartButton from "../src/components/StartButton";
 
 export default function Index(props) {
   const [appState, setAppState] = useState(STATE_IDLE);
@@ -264,12 +265,12 @@ export default function Index(props) {
                           simple.
                         </Typography>
                         <div style={{display: "flex", margin: "20px"}}>
-                          {/*<StartButton
+                          <StartButton
                             disabled={!enableStartButton}
                             onClick={() => {
-                              createCall().then(url => startJoiningCall(url));
+                              createCall().then(() => startJoiningCall("https://emojitalki.daily.co/wave"));
                             }}
-                          />*/}
+                          />
                         </div>
                       </div>
                     </div>

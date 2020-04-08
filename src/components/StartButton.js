@@ -13,7 +13,7 @@ export default function StartButton(props) {
       className="start-button"
       disabled={props.disabled}
       onClick={props.onClick}>
-      Join Channel
+      Join 👋 Channel
     </Button>
   );
 }
