@@ -225,7 +225,8 @@ export default function Call() {
             <li>Toggle empty/non-empty channels</li>
             <li>Add "Local" category to only talk to people in your GPS region</li>
             <li>Settings (i.e. change Microphone, level)</li>
-            <li>Add your own <a href="mailto:features@emojitalkie.com">feature request</a> or <a href="mailto:bug@emojitalkie.com">bug
+            <li>NSFW channels and age restriction: 🔞👅🍆🍑🌿🚬</li>
+              <li>Add your own <a href="mailto:features@emojitalkie.com">feature request</a> or <a href="mailto:bug@emojitalkie.com">bug
               report</a></li>
           </ul>
         </small>
