@@ -208,7 +208,7 @@ export default function Call() {
 
       <div>
         <small>
-          <strong className="brand">EmojiTalkie</strong> (v.0.0.1) is a one man show created by <a target="_blank" href="https://twitter.com/peer_rich">@Peer_Rich</a> to help people feel less lonely and meet new people. Starting with the YC Alumni Community, our goal is to offer a safe space to hang out casually and talk about topics based on the EmojiChannel. This project is proudly #sponsored and powered by
+          <strong className="brand">EmojiTalkie</strong> (v.0.0.1) is a one man show created by <a target="_blank" href="https://twitter.com/peer_rich">@Peer_Rich</a> to help you feel less lonely and meet new people during quarantine. Starting with the YC Alumni Community, our goal is to offer a safe space to hang out casually and talk about topics based on the EmojiChannel. This project is proudly #sponsored and powered by
           the <strong><a target="_blank"
                          href="https://daily.co/">daily.co</a> (W16)</strong> infrastructure (huge thank you, <a target="_blank" href="https://twitter.com/kwindla">Kwin</a>).
           We'll be adding more stuff in the next few weeks of the COVID-19 quarantine. Coming up next in unsorted
