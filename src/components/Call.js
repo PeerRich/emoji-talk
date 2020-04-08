@@ -212,11 +212,12 @@ export default function Call() {
           the <strong><a target="_blank"
                          href="https://daily.co/">daily.co</a> (W16)</strong> infrastructure (huge thank you, <a target="_blank" href="https://twitter.com/kwindla">Kwin</a>).
           We'll be adding more stuff in the next few weeks of the COVID-19 quarantine. Coming up next in unsorted
-          priority: <br/>
-          <strong>Roadmap</strong>
+          priority: <br/><br/>
+          <strong>MVP Roadmap</strong>
           <ul>
             <li>✅ <s>Show participants in each channel as a color</s></li>
-            <li>Vastly increase connection to channels and show loading indicator</li>
+            <li>✅ <s>Show loading indicator and empty screen</s></li>
+            <li>Vastly increase connection to channels</li>
             <li>Make URL copy & shareable</li>
             <li>Mute other participants</li>
             <li>Show your own audio level</li>
