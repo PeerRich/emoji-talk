@@ -18,8 +18,7 @@ import {
 import {logDailyEvent} from "../logUtils";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
-import {ButtonBase, LinearProgress} from '@material-ui/core';
-import AddIcon from '@material-ui/icons/Add';
+import {ButtonBase, Tooltip} from '@material-ui/core';
 import VolumeOffIcon from '@material-ui/icons/VolumeOff';
 import EmptyScreen from "./EmptyScreen";
 import Progress from "./Progress";
@@ -173,11 +172,13 @@ export default function Call() {
           {callState.participants && Object.keys(callState.participants).map(x => {
             return <Grid key={x} item xs={6} sm={4}>
               <Paper style={{position: "relative", height: 0, paddingTop: "100%", width: "100%"}}>
-                <ButtonBase className="volume-off-icon"
-                            style={{position: "absolute", top: 0, width: "100%", height: "100%"}}>
-                  <VolumeOffIcon style={{color: "#fff"}}/>
-                  <div style={{display: "none"}}>{x + ": " + JSON.stringify(callState.participants[x])}</div>
-                </ButtonBase>
+                <Tooltip title="Coming Soon" aria-label="Coming Soon">
+                  <ButtonBase className="volume-off-icon"
+                              style={{position: "absolute", top: 0, width: "100%", height: "100%"}}>
+                    <VolumeOffIcon style={{color: "#fff"}}/>
+                    <div style={{display: "none"}}>{x + ": " + JSON.stringify(callState.participants[x])}</div>
+                  </ButtonBase>
+                </Tooltip>
               </Paper>
             </Grid>
           })}
@@ -208,9 +209,14 @@ export default function Call() {
 
       <div>
         <small>
-          <strong className="brand">EmojiTalkie</strong> (v.0.0.1) is a one man show created by <a target="_blank" href="https://twitter.com/peer_rich">@Peer_Rich</a> to help you feel less lonely and meet new people during quarantine. Starting with the YC Alumni Community, our goal is to offer a safe space to hang out casually and talk about topics based on the EmojiChannel. This project is proudly #sponsored and powered by
+          <strong className="brand">EmojiTalkie</strong> (v.0.0.1) is a one man show created by <a target="_blank"
+                                                                                                   href="https://twitter.com/peer_rich">@Peer_Rich</a> to
+          help you feel less lonely and meet new people during quarantine. Starting with the YC Alumni Community, our
+          goal is to offer a safe space to hang out casually and talk about topics based on the EmojiChannel. This
+          project is proudly #sponsored and powered by
           the <strong><a target="_blank"
-                         href="https://daily.co/">daily.co</a> (W16)</strong> infrastructure (huge thank you, <a target="_blank" href="https://twitter.com/kwindla">Kwin</a>).
+                         href="https://daily.co/">daily.co</a> (W16)</strong> infrastructure (huge thank you, <a
+          target="_blank" href="https://twitter.com/kwindla">Kwin</a>).
           We'll be adding more stuff in the next few weeks of the COVID-19 quarantine. Coming up next in unsorted
           priority: <br/><br/>
           <strong>MVP Roadmap</strong>
@@ -226,7 +232,8 @@ export default function Call() {
             <li>Add "Local" category to only talk to people in your GPS region</li>
             <li>Settings (i.e. change Microphone, level)</li>
             <li>NSFW channels and age restriction: 🔞👅🍆🍑🌿🚬</li>
-              <li>Add your own <a href="mailto:features@emojitalkie.com">feature request</a> or <a href="mailto:bug@emojitalkie.com">bug
+            <li>Add your own <a href="mailto:features@emojitalkie.com">feature request</a> or <a
+              href="mailto:bug@emojitalkie.com">bug
               report</a></li>
           </ul>
         </small>
