@@ -1,11 +1,8 @@
 import React from 'react';
 import {makeStyles} from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import {Emoji} from "../helpers";
+import Tooltip from '@material-ui/core/Tooltip';
 
 const useStyles = makeStyles({
   title: {
@@ -18,7 +15,6 @@ const useStyles = makeStyles({
 
 export default function EmptyScreen() {
   const classes = useStyles();
-  let microphone = false;
 
   return (
     <div style={{
@@ -40,13 +36,16 @@ export default function EmptyScreen() {
         <Typography className={classes.pos} color="textSecondary">
           Invite a friend or join another random channel
         </Typography>
+        {/*
         <Typography variant="body2" component="p">
           Join emoji channels and talk to strangers. You can mute a person with one <i>tap</i>, or
           permanently block them with a <i>double-tap</i>. No account. No download. It's that simple.
         </Typography>
-        {!microphone &&
-          <Button color="primary" variant="contained" style={{margin: "16px 4px"}} size="small">Invite friend</Button>}
-          <Button color="primary" style={{margin: "16px 4px"}} size="small">random channel</Button>
+        */}
+        <Button color="primary" variant="contained" style={{margin: "16px 4px"}} size="small">Invite friend</Button>
+        <Tooltip title="Coming Soon" aria-label="Coming Soon">
+          <Button disabled color="primary" style={{margin: "16px 4px"}} size="small">random channel</Button>
+        </Tooltip>
       </div>
     </div>
   );

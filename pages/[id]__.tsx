@@ -1,11 +1,15 @@
+import React, { useEffect } from 'react';
 import {useRouter} from 'next/router';
 import Index from "./index";
 import Head from 'next/head';
-import React from "react";
 
 export default function EmojiChannel() {
   const router = useRouter();
-  /*TODO: @Karsten Disable all Non-Emoji Routes*/
+
+  useEffect(() => {
+    // Update the document title using the browser API
+    document.title = `You clicked times`;
+  });
 
   return (
   <>

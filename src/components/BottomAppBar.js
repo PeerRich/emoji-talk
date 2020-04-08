@@ -11,8 +11,8 @@ import dynamic from 'next/dynamic'
 /*import AudioLevel from "./AudioLevel";*/
 
 const ShareButton = dynamic(
-() => import('./shareButton'),
-{ ssr: false }
+  () => import('./shareButton'),
+  {ssr: false}
 );
 
 
@@ -39,31 +39,33 @@ export default function BottomAppBar(props) {
   const classes = useStyles();
 
   return (
-  <div className={classes.bottomBar}>
-    <CssBaseline/>
-    {/*<AudioLevel />*/}
-    <AppBar position="static" color="primary" className="bottomAppBar">
-      <Toolbar>
-        <strong style={{display: "inline-block", marginLeft: -10}}>#</strong>
-        <IconButton disabled edge="start" color="inherit" aria-label="open drawer">
-          <Emoji>{props.emoji}</Emoji>
-        </IconButton>
-         <ShareButton
-        config={{
-          params: {
-            title: 'EmojiTalkie',
-            text: 'Check out the anonymous voice chat community',
-            url: 'https://emojitalkie.com',
-          },
-          onShareSuccess: () => console.log('Success'),
-          onShareError: (error) => console.log('error', error),
-        }}
-        />
-        <div className={classes.grow}/>
-        {props.muteIcon}
-        <MainMenu/>
-      </Toolbar>
-    </AppBar>
-  </div>
+    <div className={classes.bottomBar}>
+      <CssBaseline/>
+      {/*<AudioLevel />*/}
+      <AppBar position="static" color="primary" className="bottomAppBar">
+        <Toolbar>
+          {props.emoji !== "welcome" && <>
+            <strong style={{display: "inline-block", marginLeft: -10}}>#</strong>
+            <IconButton disabled edge="start" color="inherit" aria-label="open drawer">
+              <Emoji>{props.emoji}</Emoji>
+            </IconButton>
+          </>}
+            <ShareButton
+            config={{
+              params: {
+                title: 'EmojiTalkie',
+                text: 'Check out the anonymous voice chat community',
+                url: 'https://emojitalkie.com',
+              },
+              onShareSuccess: () => console.log('Success'),
+              onShareError: (error) => console.log('error', error),
+            }}
+          />
+          <div className={classes.grow}/>
+          {props.muteIcon}
+          <MainMenu/>
+        </Toolbar>
+      </AppBar>
+    </div>
   );
 }

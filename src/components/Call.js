@@ -16,7 +16,13 @@ import {
   getMessage
 } from "./callState";
 import {logDailyEvent} from "../logUtils";
-import Channel from "./Channel";
+import Paper from "@material-ui/core/Paper";
+import Grid from "@material-ui/core/Grid";
+import {ButtonBase, LinearProgress} from '@material-ui/core';
+import AddIcon from '@material-ui/icons/Add';
+import VolumeOffIcon from '@material-ui/icons/VolumeOff';
+import EmptyScreen from "./EmptyScreen";
+import Progress from "./Progress";
 
 export default function Call() {
   const callObject = useContext(CallObjectContext);
@@ -147,17 +153,81 @@ export default function Call() {
   }
 
   const [largeTiles, smallTiles] = getTiles();
+
+  let loading = callState.participants && Object.keys(callState.participants).length === 0;
+  let empty = callState.participants && Object.keys(callState.participants).length === 1;
+
+  callState.participants && console.log(Object.keys(callState.participants).length);
+
   const message = getMessage(callState);
   return (
     <div>
-      <div style={{color: "red", display: "none"}}>
-        TODO debug participants:
-        <ul>
-        {callState.participants ? Object.keys(callState.participants).map(x =>
-          <li>{x + ": " + JSON.stringify(callState.participants[x])}</li>
-        )
-        :<li>None yet</li>}
-        </ul>
+
+      <div style={{padding: "24px 0"}}>
+
+        {loading && <div style={{position: "absolute", left: 0, right: 0, top: 0}}>
+          <Progress blocked/>
+        </div>}
+
+        {empty ? <EmptyScreen/> : <Grid className="people" container justify="center" spacing={2}>
+          {callState.participants && Object.keys(callState.participants).map(x => {
+            return <Grid key={x} item xs={6} sm={4}>
+              <Paper style={{position: "relative", height: 0, paddingTop: "100%", width: "100%"}}>
+                <ButtonBase className="volume-off-icon"
+                            style={{position: "absolute", top: 0, width: "100%", height: "100%"}}>
+                  <VolumeOffIcon style={{color: "#fff"}}/>
+                  {x + ": " + JSON.stringify(callState.participants[x])}
+                </ButtonBase>
+              </Paper>
+            </Grid>
+          })}
+        </Grid>}
+
+        {/*<Grid className="people" container justify="center" spacing={2}>
+          [0, 1, 2, 3, 4].map(value => (
+          <Grid key={value} item xs={6} sm={4}>
+            <Paper style={{position: "relative", height: 0, paddingTop: "100%", width: "100%"}}>
+              <ButtonBase className="volume-off-icon" style={{position: "absolute", top: 0, width: "100%", height: "100%"}}>
+                <VolumeOffIcon style={{color: "#fff"}}/>
+              </ButtonBase>
+            </Paper>
+          </Grid>
+        ))
+
+        <Grid item xs={6} sm={4}>
+          <Paper className="add-person" style={{position: "relative", height: 0, paddingTop: "100%", width: "100%"}}>
+            <ButtonBase style={{position: "absolute", top: 0, width: "100%", height: "100%"}}>
+              <AddIcon style={{color: "#757ce8"}}/>
+            </ButtonBase>
+          </Paper>
+        </Grid>
+        </Grid>
+        */}
+
+      </div>
+
+      <div>
+        <small>
+          <strong className="brand">EmojiTalkie</strong> (v.0.0.1) is a one man show created by <a target="_blank" href="https://twitter.com/peer_rich">@Peer_Rich</a> to help people feel less lonely and meet strangers. Starting with the YC Alumni Community, our goal is to offer a safe space to hang out casually and talk about topics based on the EmojiChannel. This project is proudly #sponsored and powered by
+          the <strong><a target="_blank"
+                         href="https://daily.co/">daily.co</a> (W16)</strong> infrastructure (huge thank you, <a target="_blank" href="https://twitter.com/kwindla">Kwin</a>).
+          We'll be adding more stuff in the next few weeks of the COVID-19 quarantine. Coming up next in unsorted
+          priority: <br/>
+          <strong>Roadmap</strong>
+          <ul>
+            <li>Vastly increase connection to channels and show loading indicator</li>
+            <li>Make URL copy & shareable</li>
+            <li>Show participants in each channel as a color</li>
+            <li>Mute other participants</li>
+            <li>Show your own audio level</li>
+            <li>Safari Support</li>
+            <li>Toggle empty/non-empty channels</li>
+            <li>Add "Local" category to only talk to people in your GPS region</li>
+            <li>Settings (i.e. change Microphone, level)</li>
+            <li>Add your own <a href="mailto:features@emojitalkie.com">feature request</a> or <a href="mailto:bug@emojitalkie.com">bug
+              report</a></li>
+          </ul>
+        </small>
       </div>
       {/*
       <Channel/>
@@ -171,10 +241,10 @@ export default function Call() {
           />
         )}
         <div className="large-tiles">
-        {!message
-          ? largeTiles
-          : null }
-      </div>
+          {!message
+            ? largeTiles
+            : null}
+        </div>
         <div className="small-tiles">{smallTiles}</div>
       </div>
     </div>
