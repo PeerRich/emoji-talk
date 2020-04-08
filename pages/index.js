@@ -313,7 +313,7 @@ export default function Index(props) {
                   </Tabs>
                   */}
 
-                <Picker native
+                <Picker set="apple"
                         emojiSize={32}
                         useButton={false}
                         onSelect={
