@@ -14,6 +14,8 @@ build/react-demo/asset-manifest.json
 build/react-demo/index.html
 build/react-demo/service-worker.js
 
+pull.sh
+
 .DS_Store
 .firebase/
 

@@ -7,15 +7,16 @@ import CallObjectContext from "../src/CallObjectContext";
 import {roomUrlFromPageUrl, pageUrlFromRoomUrl} from "../src/urlUtils";
 import {logDailyEvent} from "../src/logUtils";
 import Paper from "@material-ui/core/Paper";
-import EmojiPicker from "../src/components/EmojiPicker";
 import EmptyScreen from "../src/components/EmptyScreen";
 import Hidden from "@material-ui/core/Hidden";
 import Typography from "@material-ui/core/Typography";
 import Divider from "@material-ui/core/Divider";
 import {Emoji} from "../src/helpers";
-
+import {Picker} from 'emoji-mart';
+import {useRouter} from 'next/router'
 import BottomAppBar from "../src/components/BottomAppBar";
 import AddToHomeScreenDialog from "../src/components/AddToHomeScreenDialog";
+import LinearProgress from '@material-ui/core/LinearProgress';
 
 const STATE_IDLE = "STATE_IDLE";
 const STATE_CREATING = "STATE_CREATING";
@@ -27,26 +28,14 @@ const STATE_ERROR = "STATE_ERROR";
 import DailyIframe from "@daily-co/daily-js"
 
 
-export function ChannelWrapper() {
-  return <div className="EmojiPickerWrapper">
-    <Divider/>
-    {/*
-    <Tabs variant="fullWidth"
-          indicatorColor="primary"
-          textColor="primary">
-      <Tab label="Global"/>
-      <Tab label="Local"/>
-    </Tabs>
-    */}
-    <EmojiPicker/>
-  </div>;
-}
-
 export default function Index(props) {
   const [appState, setAppState] = useState(STATE_IDLE);
   const [supportsBrowser, setBrowserSupport] = useState(STATE_IDLE);
   const [roomUrl, setRoomUrl] = useState(null);
   const [callObject, setCallObject] = useState(null);
+
+  const router = useRouter();
+
 
   /**
    * Check for Browser Support
@@ -210,6 +199,7 @@ export default function Index(props) {
   const enableStartButton = appState === STATE_IDLE;
 
   let isEmpty = false;
+  let loading = false;
 
   return (<>
       {supportsBrowser ? <div className="wrapper">
@@ -218,6 +208,9 @@ export default function Index(props) {
               <AddToHomeScreenDialog/>
             </div>
           </Hidden>
+
+          {loading && <LinearProgress/>}
+
           <Paper className="app">
             <div style={{width: "100%", height: "100%"}}>
               <div className="content">
@@ -277,6 +270,7 @@ export default function Index(props) {
             </div>
             <div className="channels">
               <div className="bottomAppBarWrapper">
+
                 <BottomAppBar emoji={props.emoji}
                               muteIcon={
                                 <CallObjectContext.Provider value={callObject}>
@@ -288,7 +282,40 @@ export default function Index(props) {
                               }/>
               </div>
 
-              <ChannelWrapper/>
+              <div className="EmojiPickerWrapper">
+                <Divider/>
+                {/*
+                  <Tabs variant="fullWidth"
+                        indicatorColor="primary"
+                        textColor="primary">
+                    <Tab label="Global"/>
+                    <Tab label="Local"/>
+                  </Tabs>
+                  */}
+
+                <Picker set="twitter"
+                        emojiSize={32}
+                        useButton={false}
+                        onSelect={
+                          (emoji) => {
+                            console.log(emoji.id);
+                            createCall().then(url => startJoiningCall("https://emojitalki.daily.co/" + emoji.id));
+
+                            /* TODO:
+                            *  - join room
+                            *  - show channel grid
+                            *  - green <Snackbar /> with: "Changed channel to {emoji}" or red <Snackbar/> with error*/
+                            /*router.push("/" + emoji.native, "/" + emoji.native, {shallow: true});*/
+
+
+                          }}
+                        showSkinTones={false}
+                        showPreview={false}
+                        sheetSize={64}
+                        color="#002884"
+                        title="EmojiTalkie"
+                        style={{width: "100%", borderRadius: 0}}/>
+              </div>
 
             </div>
           </Paper>

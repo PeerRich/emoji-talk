@@ -8,6 +8,7 @@ import {Emoji} from "../helpers";
 import MainMenu from "./MainMenu";
 
 import dynamic from 'next/dynamic'
+/*import AudioLevel from "./AudioLevel";*/
 
 const ShareButton = dynamic(
 () => import('./shareButton'),
@@ -16,9 +17,6 @@ const ShareButton = dynamic(
 
 
 const useStyles = makeStyles((theme) => ({
-  text: {
-    padding: theme.spacing(2, 2, 0),
-  },
   bottomBar: {
     maxWidth: 1280,
     margin: "0 auto"
@@ -43,6 +41,7 @@ export default function BottomAppBar(props) {
   return (
   <div className={classes.bottomBar}>
     <CssBaseline/>
+    {/*<AudioLevel />*/}
     <AppBar position="static" color="primary" className="bottomAppBar">
       <Toolbar>
         <strong style={{display: "inline-block", marginLeft: -10}}>#</strong>
