@@ -386,9 +386,13 @@ a {
 .emoji-mart-scroll {
     overflow-y: scroll;
     overflow-x: hidden;
-    padding: 0px 3px 80px;
+    padding: 0px 3px;
     will-change: transform; /* avoids "repaints on scroll" in mobile Chrome */
     height: 80vh !important;
+}
+
+.emoji-mart-scroll section:last-child{
+    margin-bottom: 100px;
 }
 
 .emoji-mart-search {
