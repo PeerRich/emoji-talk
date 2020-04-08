@@ -79,8 +79,8 @@ export default function MainMenu() {
     TransitionComponent={Fade}
     >
       <MenuItem onClick={handleClose}>
-        <a target="_blank" style={{color: "inherit", textDecoration: "none"}} href="#">
-          About
+        <a target="_blank" style={{color: "inherit", textDecoration: "none"}} href="https://bookface.ycombinator.com/posts/46161">
+          Bookface Launch
         </a>
       </MenuItem>
       {/*
