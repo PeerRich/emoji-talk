@@ -152,6 +152,10 @@ export default function MainMenu() {
               Copyright (c) 2017-present, Marco Lanaro
             </li>
             <li>
+              <strong>react-emoji-render</strong><br/>
+              Copyright (c) 2017 Tom Moor
+            </li>
+            <li>
               <strong>Twemoji</strong><br/>
               Copyright (c) 2018 Twitter, Inc and other contributors
             </li>

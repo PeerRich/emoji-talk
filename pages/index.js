@@ -1,6 +1,6 @@
 import React, {useEffect, useState, useCallback} from "react";
 import Call from "../src/components/Call";
-import StartButton from "../src/components/StartButton";
+/*import StartButton from "../src/components/StartButton";*/
 import api from "../src/api";
 import Tray from "../src/components/Tray";
 import CallObjectContext from "../src/CallObjectContext";
@@ -16,7 +16,6 @@ import {Picker} from 'emoji-mart';
 import {useRouter} from 'next/router'
 import BottomAppBar from "../src/components/BottomAppBar";
 import AddToHomeScreenDialog from "../src/components/AddToHomeScreenDialog";
-import LinearProgress from '@material-ui/core/LinearProgress';
 
 const STATE_IDLE = "STATE_IDLE";
 const STATE_CREATING = "STATE_CREATING";
@@ -27,15 +26,14 @@ const STATE_ERROR = "STATE_ERROR";
 
 import DailyIframe from "@daily-co/daily-js"
 
-
 export default function Index(props) {
   const [appState, setAppState] = useState(STATE_IDLE);
+  const [emojiState, setEmoji] = useState(STATE_IDLE);
   const [supportsBrowser, setBrowserSupport] = useState(STATE_IDLE);
   const [roomUrl, setRoomUrl] = useState(null);
   const [callObject, setCallObject] = useState(null);
 
   const router = useRouter();
-
 
   /**
    * Check for Browser Support
@@ -71,12 +69,12 @@ export default function Index(props) {
    */
   const startJoiningCall = useCallback(url => {
     const newCallObject = DailyIframe.createCallObject(
-        {
-          url: url,
-          dailyConfig: {
-            experimentalChromeVideoMuteLightOff: true,
-          }
+      {
+        url: url,
+        dailyConfig: {
+          experimentalChromeVideoMuteLightOff: true,
         }
+      }
     );
     setRoomUrl(url);
     setCallObject(newCallObject);
@@ -206,7 +204,8 @@ export default function Index(props) {
   const enableStartButton = appState === STATE_IDLE;
 
   let isEmpty = false;
-  let loading = false;
+
+  let emojiIcon = emojiState;
 
   return (<>
       {supportsBrowser ? <div className="wrapper">
@@ -216,8 +215,6 @@ export default function Index(props) {
             </div>
           </Hidden>
 
-          {loading && <LinearProgress/>}
-
           <Paper className="app">
             <div style={{width: "100%", height: "100%"}}>
               <div className="content">
@@ -226,6 +223,22 @@ export default function Index(props) {
                     isEmpty ? <EmptyScreen/>
                       : <CallObjectContext.Provider value={callObject}>
                         <Call roomUrl={roomUrl}/>
+                        <div style={{textAlign: "center", margin: "20px"}}>
+                          You are connected, however the channel might be empty.<br/><br/>
+                        </div>
+                        <div>
+                          <small><strong className="brand">EmojiTalkie</strong> is a one man show run by <a href="https://twitter.com/peer_rich">@Peer_Rich</a> for the YC Alumni Community, which proudly runs on
+                            the <strong><a href="https://daily.co/">daily.co</a> infrastructure.</strong>.
+                            He'll be adding more stuff in the next few weeks of COVID-19 quarantine. Coming up next: <br/>
+                            <ul>
+                              <li>Show Channel State and Participants</li>
+                              <li>Mute other Participants</li>
+                              <li>Make URL copy & shareable</li>
+                              <li>Settings (i.e. change Microphone, level)</li>
+                              <li>Show audio level</li>
+                            </ul>
+                          </small>
+                        </div>
                         {/*
                       TODO: not sure if this works
                       <Tray
@@ -307,6 +320,8 @@ export default function Index(props) {
                           (emoji) => {
                             console.log(emoji.id);
                             createCall().then(url => startJoiningCall("https://emojitalki.daily.co/" + emoji.id));
+
+                            setEmoji(emojiState.native);
 
                             /* TODO:
                             *  - green <Snackbar /> with: "Changed channel to {emoji}" or red <Snackbar/> with error*/

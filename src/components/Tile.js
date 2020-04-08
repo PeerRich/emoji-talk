@@ -1,5 +1,6 @@
 import React, {useEffect, useRef} from "react";
 /*import "./Tile.css";*/
+import LinearProgress from '@material-ui/core/LinearProgress';
 
 let videoEnabled = false;
 
@@ -34,7 +35,7 @@ export default function Tile(props) {
     }, [props.audioTrack]);
 
     function getLoadingComponent() {
-        return props.isLoading && <p className="loading">Loading...</p>;
+        return props.isLoading && <LinearProgress />;
     }
 
     function getVideoComponent() {
@@ -57,15 +58,12 @@ export default function Tile(props) {
         return classNames;
     }
 
-    return (
-        /*<div>
-          {getAudioComponent()}
-        </div>*/
+    return (<>
+          {/*getLoadingComponent()*/}
         <div className={getClassNames()}>
-            <div className="background"/>
-            {getLoadingComponent()}
             {videoEnabled && getVideoComponent()}
             {getAudioComponent()}
         </div>
+      </>
     );
 }

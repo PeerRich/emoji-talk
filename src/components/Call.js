@@ -150,7 +150,9 @@ export default function Call() {
   const message = getMessage(callState);
   return (
     <div>
+      {/*
       <Channel/>
+      */}
       <div className="call">
         {message && (
           <CallMessage
