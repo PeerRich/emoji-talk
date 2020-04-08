@@ -262,12 +262,12 @@ export default function Index(props) {
                           simple.
                         </Typography>
                         <div style={{display: "flex", margin: "20px"}}>
-                          <StartButton
+                          {/*<StartButton
                             disabled={!enableStartButton}
                             onClick={() => {
                               createCall().then(url => startJoiningCall(url));
                             }}
-                          />
+                          />*/}
                         </div>
                       </div>
                     </div>
