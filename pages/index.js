@@ -309,11 +309,7 @@ export default function Index(props) {
                             createCall().then(url => startJoiningCall("https://emojitalki.daily.co/" + emoji.id));
 
                             /* TODO:
-                            *  - join room
-                            *  - show channel grid
                             *  - green <Snackbar /> with: "Changed channel to {emoji}" or red <Snackbar/> with error*/
-                            /*router.push("/" + emoji.native, "/" + emoji.native, {shallow: true});*/
-
 
                           }}
                         showSkinTones={false}
