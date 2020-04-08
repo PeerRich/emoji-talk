@@ -300,7 +300,7 @@ export default function Index(props) {
                   </Tabs>
                   */}
 
-                <Picker set="twitter"
+                <Picker native
                         emojiSize={32}
                         useButton={false}
                         onSelect={
