@@ -11,11 +11,14 @@ import EmptyScreen from "../src/components/EmptyScreen";
 import Hidden from "@material-ui/core/Hidden";
 import Typography from "@material-ui/core/Typography";
 import Divider from "@material-ui/core/Divider";
+import Tabs from "@material-ui/core/Tabs";
+import Tab from "@material-ui/core/Tab";
 import {Emoji} from "../src/helpers";
 import {Picker} from 'emoji-mart';
 import {useRouter} from 'next/router'
 import BottomAppBar from "../src/components/BottomAppBar";
 import AddToHomeScreenDialog from "../src/components/AddToHomeScreenDialog";
+import Checkbox from '@material-ui/core/Checkbox';
 
 const STATE_IDLE = "STATE_IDLE";
 const STATE_CREATING = "STATE_CREATING";
@@ -227,15 +230,22 @@ export default function Index(props) {
                           You are connected, however the channel might be empty.<br/><br/>
                         </div>
                         <div>
-                          <small><strong className="brand">EmojiTalkie</strong> is a one man show run by <a target="_blank" href="https://twitter.com/peer_rich">@Peer_Rich</a> for the YC Alumni Community, which is proudly powered by
-                            the <strong><a target="_blank" href="https://daily.co/">daily.co</a> (W16)</strong> infrastructure. (Special thanks to <a target="_blank" href="https://twitter.com/kwindla">Kwin</a>)
-                            We'll be adding more stuff in the next few weeks of COVID-19 quarantine. Coming up next: <br/>
+                          <small>
+                            <strong className="brand">EmojiTalkie</strong> is a one man show run by <a target="_blank"
+                                                                                                            href="https://twitter.com/peer_rich">@Peer_Rich</a> for
+                            the YC Alumni Community, which is proudly #sponsored and powered by
+                            the <strong><a target="_blank"
+                                           href="https://daily.co/">daily.co</a> (W16)</strong> infrastructure (Special
+                            thanks to <a target="_blank" href="https://twitter.com/kwindla">Kwin</a>).
+                            We'll be adding more stuff in the next few weeks of the COVID-19 quarantine. Coming up next: <br/>
                             <ul>
-                              <li>Show Channel State and Participants</li>
-                              <li>Mute other Participants</li>
                               <li>Make URL copy & shareable</li>
+                              <li>Show participants in each channel as a color</li>
+                              <li>Mute other participants</li>
+                              <li>Show your own audio level</li>
+                              <li>Toggle empty/non-empty channels</li>
+                              <li>Add "Local" category to only talk to people in your GPS region</li>
                               <li>Settings (i.e. change Microphone, level)</li>
-                              <li>Show audio level</li>
                             </ul>
                           </small>
                         </div>
@@ -259,7 +269,7 @@ export default function Index(props) {
                              style={{height: 100, width: 100, marginBottom: 20}}/>
 
                         <Typography style={{fontSize: 14}} color="textSecondary" gutterBottom>
-                          Hello Stranger,
+                          Hello YC Alumni,
                         </Typography>
                         <Typography variant="h5" component="h2">
                           Welcome to <Emoji>📻</Emoji> <strong className="brand">EmojiTalkie</strong>
@@ -268,10 +278,9 @@ export default function Index(props) {
                           The anonymous voice chat community
                         </Typography>
                         <Typography variant="body2" component="p">
-                          Join emoji channels and socalise with strangers about your favorite topics. You can mute a
-                          person
-                          with one <i>tap</i>{/*, or
-                      permanently block them with a <i>double-tap</i>*/}. No account. No download required. It's that
+                          Join emoji channels and socalise with strangers about your favorite topics. {/*You can mute a
+                          person with one <i>tap</i> , or
+                      permanently block them with a <i>double-tap</i>. */}No account. No download required. It's that
                           simple.
                         </Typography>
                         <div style={{display: "flex", margin: "20px"}}>
@@ -304,14 +313,13 @@ export default function Index(props) {
 
               <div className="EmojiPickerWrapper">
                 <Divider/>
-                {/*
-                  <Tabs variant="fullWidth"
-                        indicatorColor="primary"
-                        textColor="primary">
-                    <Tab label="Global"/>
-                    <Tab label="Local"/>
-                  </Tabs>
-                  */}
+                <Tabs value="global" variant="fullWidth"
+                      TabIndicatorProps={{style: {backgroundColor: "transparent"}}}
+                      indicatorColor="primary"
+                      textColor="primary">
+                  <Tab value="global" label="Global"/>
+                  <Tab disabled label="Local 🔒"/>
+                </Tabs>
 
                 <Picker set="apple"
                         emojiSize={32}
