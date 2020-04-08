@@ -150,9 +150,17 @@ export default function Call() {
   const message = getMessage(callState);
   return (
     <div>
-      {/*
+      <div style={{color: "red"}}>
+        TODO debug
+        participants:
+        <ul>
+        {callState.participants ? Object.keys(callState.participants).map(x =>
+          <li>{x + ": " + JSON.stringify(callState.participants[x])}</li>
+        )
+        :<li>None yet</li>}
+        </ul>
+      </div>
       <Channel/>
-      */}
       <div className="call">
         {message && (
           <CallMessage
