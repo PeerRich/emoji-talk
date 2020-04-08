@@ -227,8 +227,8 @@ export default function Index(props) {
                           You are connected, however the channel might be empty.<br/><br/>
                         </div>
                         <div>
-                          <small><strong className="brand">EmojiTalkie</strong> is a one man show run by <a href="https://twitter.com/peer_rich">@Peer_Rich</a> for the YC Alumni Community, which proudly runs on
-                            the <strong><a href="https://daily.co/">daily.co</a> infrastructure.</strong>.
+                          <small><strong className="brand">EmojiTalkie</strong> is a one man show run by <a href="https://twitter.com/peer_rich">@Peer_Rich</a> for the YC Alumni Community, which is proudly powered by
+                            the <strong><a href="https://daily.co/">daily.co</a></strong> infrastructure.
                             He'll be adding more stuff in the next few weeks of COVID-19 quarantine. Coming up next: <br/>
                             <ul>
                               <li>Show Channel State and Participants</li>
