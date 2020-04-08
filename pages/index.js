@@ -70,7 +70,14 @@ export default function Index(props) {
    * events.
    */
   const startJoiningCall = useCallback(url => {
-    const newCallObject = DailyIframe.createCallObject();
+    const newCallObject = DailyIframe.createCallObject(
+        {
+          url: url,
+          dailyConfig: {
+            experimentalChromeVideoMuteLightOff: true,
+          }
+        }
+    );
     setRoomUrl(url);
     setCallObject(newCallObject);
     setAppState(STATE_JOINING);
