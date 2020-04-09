@@ -209,7 +209,7 @@ export default function Call() {
 
       <div>
         <small>
-          <strong className="brand">EmojiTalkie</strong> (v.0.0.1) is a one man show created by <a target="_blank"
+          <strong className="brand">EmojiTalkie</strong> (v.0.0.2) is a one man show created by <a target="_blank"
                                                                                                    href="https://twitter.com/peer_rich">@Peer_Rich</a> to
           help you feel less lonely and meet new people during quarantine. Starting with the YC Alumni Community, our
           goal is to offer a safe space to hang out casually and talk about topics based on the EmojiChannel. This
@@ -223,11 +223,11 @@ export default function Call() {
           <ul>
             <li>✅ <s>Show participants in each channel as a color</s></li>
             <li>✅ <s>Show loading indicator and empty screen</s></li>
-            <li>Vastly increase connection to channels</li>
+            <li>✅ <s>Show most frequently joiined EmojiChannels</s></li>
+            <li>✅ <s>Vastly increase connection to channels</s></li>
             <li>Add PWA (standalone) support</li>
             <li>Make URL copy & shareable</li>
             <li>Show how many people are in a room</li>
-            <li>Show less EmojiChannels</li>
             <li>Mute other participants</li>
             <li>Show your own audio level</li>
             <li>Toggle empty/non-empty channels</li>
