@@ -18,6 +18,7 @@ import {Picker} from 'emoji-mart';
 import {useRouter} from 'next/router'
 import BottomAppBar from "../src/components/BottomAppBar";
 import AddToHomeScreenDialog from "../src/components/AddToHomeScreenDialog";
+import {toArray} from "react-emoji-render";
 
 
 const STATE_IDLE = "STATE_IDLE";
@@ -29,6 +30,7 @@ const STATE_ERROR = "STATE_ERROR";
 
 import DailyIframe from "@daily-co/daily-js"
 import StartButton from "../src/components/StartButton";
+import SimpleTabs from "../src/components/SimpleTabs";
 
 export default function Index(props) {
   const [appState, setAppState] = useState(STATE_IDLE);
@@ -214,9 +216,41 @@ export default function Index(props) {
    **/
 
 
+  function EmojiPicker(props) {
+    return <Picker set="apple"
+                   i18n={{categories: {recent: 'Most Frequently Joined' }}}
+                   recent={props.recent}
+                   exclude={props.exclude}
+                   emojiSize={32}
+                   useButton={true}
+                   onSelect={
+                     (e) => {
+                       /*let emojiUrl = "/" + e.native;*/
+                       console.log("selected emoji: " + e.id);
+
+                       /*router.push(emojiUrl, emojiUrl, { shallow: true });*/
+
+                       /* Leave current (if any) call first*/
+                       startLeavingCall();
+
+                       /* Join new call based on chosen emoji*/
+                       createCall().then(() => startJoiningCall("https://emojitalki.daily.co/" + e.id));
+
+                       /* TODO: Instead of starting the call from Picker, it should start from ComponentDidMount and Picker should just change Routes*/
+                       /*Router.push('/' + emoji.native, '/' + emoji.native, { shallow: true })*/
+
+                     }}
+                   showSkinTones={false}
+                   showPreview={false}
+                   sheetSize={64}
+                   color="#002884"
+                   title="EmojiTalkie"
+                   style={{width: "100%", borderRadius: 0}}/>;
+  }
+
   return (<>
       {supportsBrowser ? <div className="wrapper">
-        {/*
+          {/*
         <Hidden smUp>
             <div className="hidden-standalone">
               <AddToHomeScreenDialog/>
@@ -296,43 +330,54 @@ export default function Index(props) {
 
               <div className="EmojiPickerWrapper">
                 <Divider/>
-                <Tooltip title="Local Channels coming soon!" placement="top" aria-label="Coming Soon">
-                  <Tabs value="global" variant="fullWidth"
-                        TabIndicatorProps={{style: {backgroundColor: "transparent"}}}
-                        indicatorColor="primary"
-                        textColor="primary">
-                    <Tab value="global" label="Global"/>
-                    <Tab disabled label="Local 🔒"/>
-                  </Tabs>
-                </Tooltip>
 
-                <Picker set="apple"
-                        exclude={["+1", "-1"]}
-                        emojiSize={32}
-                        useButton={true}
-                        onSelect={
-                          (e) => {
-                            /*let emojiUrl = "/" + e.native;*/
-                            console.log("selected emoji: " + e.id);
-
-                            /*router.push(emojiUrl, emojiUrl, { shallow: true });*/
-
-                            /* Leave current (if any) call first*/
-                            startLeavingCall();
-
-                            /* Join new call based on chosen emoji*/
-                            createCall().then(() => startJoiningCall("https://emojitalki.daily.co/" + e.id));
-
-                            /* TODO: Instead of starting the call from Picker, it should start from ComponentDidMount and Picker should just change Routes*/
-                            /*Router.push('/' + emoji.native, '/' + emoji.native, { shallow: true })*/
-
-                          }}
-                        showSkinTones={false}
-                        showPreview={false}
-                        sheetSize={64}
-                        color="#002884"
-                        title="EmojiTalkie"
-                        style={{width: "100%", borderRadius: 0}}/>
+                <SimpleTabs
+                  /*first={
+                    <div className="favorite">
+                      <EmojiPicker/>
+                    </div>}*/
+                  first={
+                    <div>
+                      <EmojiPicker recent={[
+                        "wave",
+                        "joy",
+                        "heart_eyes",
+                        "heart",
+                        "blush",
+                        "pray",
+                        "two_hearts",
+                        "sob",
+                        "kissing_heart",
+                        "video_game",
+                        "hankey",
+                        "brain",
+                        "mask",
+                        "angry",
+                        "rose",
+                        "musical_note",
+                        "sunglasses",
+                        "smirk",
+                        "soccer",
+                        "cat",
+                        "dog",
+                        "basketball",
+                        "eggplant",
+                        "lips",
+                        "sweat_smile",
+                        "sweat_drops",
+                        "disappointed_relieved",
+                        "doughnut",
+                        "cookie",
+                        "fire",
+                        "100",
+                        "broken_heart"]}/>
+                    </div>
+                  }
+                  second={
+                    <div className="countries">
+                      <EmojiPicker
+                        exclude={["search", "recent", "people", "nature", "foods", "activity", "places", "objects", "smileys", "symbols"]}/>
+                    </div>}/>
               </div>
 
             </div>

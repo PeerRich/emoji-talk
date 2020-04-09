@@ -44,6 +44,40 @@ a {
     right: 0;
 }
 
+.countries .emoji-mart-search, .countries .emoji-mart-anchors, .countries .emoji-mart-category-label{
+    display: none !important;
+}
+
+.countries .emoji-mart-bar:first-child{
+    border: 0
+}
+
+.favorite .emoji-mart-emoji{
+    display: none !important;
+}
+
+/*
+😍, heart_eyes
+❤️, heart
+😊, blush
+🙏, pray
+💕, two_hearts
+😭, sob
+😘, kissing_heart
+👄, lips
+😅, sweat_smile
+💦, sweat_drops
+😥, disappointed_relieved
+🍩, doughnut
+🍪, cookie
+🔥, fire
+💔, broken_heart
+*/
+
+.favorite .emoji-mart-emoji[aria-label="😂, joy"]{
+    display: block !important;
+}
+
 .emoji-mart-emoji[aria-label="👍, +1, thumbsup"],
 .emoji-mart-emoji[aria-label="👎, -1, thumbsdown"] {
     display: none;

@@ -224,10 +224,12 @@ export default function Call() {
             <li>✅ <s>Show participants in each channel as a color</s></li>
             <li>✅ <s>Show loading indicator and empty screen</s></li>
             <li>Vastly increase connection to channels</li>
+            <li>Add PWA (standalone) support</li>
             <li>Make URL copy & shareable</li>
+            <li>Show how many people are in a room</li>
+            <li>Show less EmojiChannels</li>
             <li>Mute other participants</li>
             <li>Show your own audio level</li>
-            <li>Safari Support</li>
             <li>Toggle empty/non-empty channels</li>
             <li>Add "Local" category to only talk to people in your GPS region</li>
             <li>Settings (i.e. change Microphone, level)</li>
