@@ -80,7 +80,7 @@ export default function MainMenu() {
     >
       <MenuItem onClick={handleClose}>
         <a target="_blank" style={{color: "inherit", textDecoration: "none"}} href="https://bookface.ycombinator.com/posts/46161">
-          Bookface Launch
+          Announcement Post
         </a>
       </MenuItem>
       {/*
