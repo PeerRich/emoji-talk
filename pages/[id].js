@@ -216,11 +216,13 @@ export default function Index(props) {
 
   return (<>
       {supportsBrowser ? <div className="wrapper">
-          <Hidden smUp>
+        {/*
+        <Hidden smUp>
             <div className="hidden-standalone">
               <AddToHomeScreenDialog/>
             </div>
           </Hidden>
+          */}
 
           <Paper className="app">
             <div style={{width: "100%", height: "100%"}}>
